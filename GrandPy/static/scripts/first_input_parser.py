@@ -9,10 +9,9 @@ def parse_user_input(user_input):
 
     user_input = re.split(",|'| |-", user_input)
     user_input = [x.lower() for x in user_input]
-
     with open('stop_words.json') as json_stop_words:
         stop_words_custom = json.load(json_stop_words)
-        
+    
     new_sentence = []
 
     for word in user_input:
