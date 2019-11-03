@@ -1,4 +1,4 @@
-import static.scripts.first_input_parser as first
+import scripts.first_input_parser as first
 
 
 def test_parse_user_input():
