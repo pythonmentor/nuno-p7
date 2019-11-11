@@ -1,5 +1,5 @@
-from first_input_parser import important_words, parse_user_input
-from interface_requests import call_wiki_page, call_wiki_title
+from .first_input_parser import important_words, parse_user_input
+from .interface_requests import call_wiki_page, call_wiki_title
 
 
 class UserInterface:
