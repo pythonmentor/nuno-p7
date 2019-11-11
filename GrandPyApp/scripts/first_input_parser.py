@@ -26,19 +26,12 @@ def important_words(parsed_sentence):
     """
     Get a positionement word
     """
-    position_words = ["adresse", "situé", "situe", "trouve"]
+    words_to_remove = app.config['WORDS_TO_REMOVE']
     new_sentence = []
     for word in parsed_sentence:
-        if word in position_words:
-            index = position_words.index(word)
-            i = index
-            while i < len(parsed_sentence):
-                new_sentence.append(parsed_sentence[i])
-                i += 1
-    if len(new_sentence) == 1:
-        title = new_sentence[0]
-    else:
-        title = ' '.join(new_sentence[0:2])
+        if word not in words_to_remove:
+            new_sentence.append(word)
+    title = ' '.join(new_sentence)
     print(title)
     return title
 
