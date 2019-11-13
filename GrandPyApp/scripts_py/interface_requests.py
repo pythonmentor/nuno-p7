@@ -1,10 +1,14 @@
 import requests
 
 
+def call_google_maps_positionnement(tittle):
+    pass
+
+
 def call_wiki_by_geocoordinates(coordinates):
 
     """
-    Obtain coordinates for wiki pages nearby
+    Obtain wiki pages nearby coordinates
 
     """
 
