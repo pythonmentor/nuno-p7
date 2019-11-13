@@ -18,7 +18,7 @@ def call_wiki_by_geocoordinates(coordinates):
         "generator": "geosearch",
         "titles": "Wikimedia Foundation",
         "prop": "coordinates|pageimages",
-        "ggscoord": coordinates[0] | coordinates[1]
+        "ggscoord": # coordinates[0] | coordinates[1]
     }
     r = s.get(url=url, params=params)
     data = r.json()
