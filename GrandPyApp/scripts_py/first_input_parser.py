@@ -1,4 +1,5 @@
 import re
+import string
 from ..views import app
 
 app.config.from_object('config')
@@ -8,7 +9,12 @@ def parse_user_input(user_input):
     """
     Get and parse user's sentences.
     """
-    user_input = re.split(",|'| |-", user_input)
+    _punctuation = set(string.punctuation)
+    for punct in set(user_input).intersection(_punctuation):
+        user_input = user_input.replace(punct, ' ')
+    user_input = ' '.join(user_input.split())
+
+    user_input = re.split(",|'| |-|;", user_input)
     user_input = [x.lower() for x in user_input]
 
     stop_words_custom = app.config['STOP_WORDS']

@@ -14,5 +14,4 @@ WORDS_TO_REMOVE = [
     "situé",
     "situe",
     "trouve"
-    ]
-
+]

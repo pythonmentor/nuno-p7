@@ -22,7 +22,7 @@ class UserInterface:
             wiki_title,
             wiki_text)
         print(text)
-        
+
 
 if __name__ == "__main__":
     UserInterface.user_interface_user_to_bot_with_hello(UserInterface)

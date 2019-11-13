@@ -3,6 +3,10 @@ import json
 from pprint import pprint
 
 
+def call_google_maps(tittle):
+    pass
+
+
 def call_wiki_title(parsed_user_title):
     """Call Api Wikipedia"""
     # first call all main page
@@ -32,7 +36,3 @@ def call_wiki_page(title):
     r = requests.get(url)
     result_wiki_text = json.loads(r.content)
     return result_wiki_text
-
-
-def get_from_google_maps():
-    pass
