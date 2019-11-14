@@ -6,7 +6,6 @@ key = app.config.from_object('MAPS_API_KEY')
 
 def call_google_maps_positionnement(tittle):
     search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json"
 
     search_payload = {"key": key, "query": tittle}
     search_req = requests.get(search_url, params=search_payload)
@@ -18,14 +17,18 @@ def call_google_maps_positionnement(tittle):
 
     print(location)
     print(adress)
+    return place_id, location, adress
 
+
+def call_google_maps_details(place_id):
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json"
     details_payload = {"key": key, "placeid": place_id}
     details_resp = requests.get(details_url, params=details_payload)
     details_json = details_resp.json()
 
     url = details_json["result"]["url"]
 
-    return jsonify({'result': url})
+    return url
 
 
 def call_wiki_by_geocoordinates(coordinates):
