@@ -1,5 +1,5 @@
-from .first_input_parser import important_words, parse_user_input
-from .interface_requests import (
+from first_input_parser import important_words, parse_user_input
+from interface_requests import (
     call_google_maps_positionnement,
     call_wiki_by_geocoordinates
 )
