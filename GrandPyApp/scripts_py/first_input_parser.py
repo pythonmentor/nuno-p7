@@ -1,3 +1,5 @@
+import sys
+sys.path.append(".")
 import re
 import string
 from ..views import app
@@ -38,7 +40,7 @@ def important_words(parsed_sentence):
         if word not in words_to_remove:
             new_sentence.append(word)
     title = ' '.join(new_sentence)
-    print(title)
+
     return title
 
 

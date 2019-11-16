@@ -1,5 +1,7 @@
-from .first_input_parser import important_words, parse_user_input
-from .interface_requests import (
+import sys
+sys.path.append(".")
+from first_input_parser import important_words, parse_user_input
+from interface_requests import (
     call_google_maps_positionnement,
     call_wiki_by_geocoordinates
 )
@@ -21,9 +23,7 @@ class UserInterface:
         google_coordinates = call_google_maps_positionnement(
             self.parsed_sentence
             )
-        wiki_page = call_wiki_by_geocoordinates(google_coordinates)
-
-        print(wiki_page)
+        call_wiki_by_geocoordinates(google_coordinates[1])
 
 
 if __name__ == "__main__":
