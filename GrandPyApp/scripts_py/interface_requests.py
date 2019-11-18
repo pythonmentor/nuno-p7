@@ -15,7 +15,7 @@ def call_google_maps_positionnement(tittle):
     search_req = requests.get(search_url, params=search_payload)
     search_json = search_req.json()
 
-    with open('current_data.json', 'w') as fp:
+    with open('gmaps_data.json', 'w') as fp:
         json.dump(search_json, fp)
 
     place_id = search_json["results"][0]["place_id"]
@@ -65,8 +65,9 @@ def call_wiki_by_geocoordinates(coordinates):
 
     r = s.get(url=url, params=params)
     data = r.json()
-    with open('wiki_data.json', 'w') as fp:
+    with open('wiki_title_data_by_coordinates.json', 'w') as fp:
         json.dump(data, fp)
+    pprint(data)
     pages = data['query']['pages']
 
     return pages
@@ -100,9 +101,7 @@ def call_wiki_found_page(title):
         "prop": "extracts",
         "exsentences": "3",
         "format": "json",
-        "explaintext": "explaintext",
         "exlimit": "max",
-        "exintro": "exintro"
     }
     r = s.get(url=url, params=params)
     data = r.json()
@@ -112,10 +111,8 @@ def call_wiki_found_page(title):
 
 
 if __name__ == "__main__":
-    """call_google_maps_positionnement("openclassrooms")
-    place_id = "ChIJIZX8lhRu5kcRGwYk8Ce3Vc8"
-    call_google_maps_details(place_id)"""
-    coordinates = {'lat': 48.8748465, 'lng': 2.3504873}
-    call_wiki_by_geocoordinates(coordinates)
+    call_by_name = call_google_maps_positionnement("openclassrooms")
+    call_google_maps_details(call_by_name[0])
+    call_wiki_by_geocoordinates(call_by_name[1])
     call_wiki_main_page("openclassrooms")
     call_wiki_found_page("openclassrooms")

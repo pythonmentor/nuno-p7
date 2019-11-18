@@ -55,3 +55,19 @@ def test_call_google_maps(monkeypatch):
       "openclassrooms")[1] == location_test
     assert req.call_google_maps_positionnement(
       "openclassrooms")[2] == adress_test
+
+
+def test_call_google_maps_details():
+  pass
+
+
+def test_call_wiki_by_gecoodinates():
+  pass
+
+
+def test_call_wiki_main_page():
+  pass
+
+
+def test_call_wiki_found_page():
+  pass
