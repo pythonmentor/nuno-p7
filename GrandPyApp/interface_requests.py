@@ -1,15 +1,9 @@
-import sys
-sys.path.append(".")
 import requests
-from GrandPyApp.views import app
 import json
 from pprint import pprint
 
-app.config.from_object('config')
-key = app.config["MAPS_API_KEY"]
 
-
-def call_google_maps_positionnement(tittle):
+def call_google_maps_positionnement(key, tittle):
     search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     search_payload = {"key": key, "query": tittle}
     search_req = requests.get(search_url, params=search_payload)
@@ -25,13 +19,13 @@ def call_google_maps_positionnement(tittle):
     return place_id, location, adress
 
 
-def call_google_maps_details(place_id):
+def call_google_maps_details(key, place_id):
     details_url = "https://maps.googleapis.com/maps/api/place/details/json"
     details_payload = {"key": key, "placeid": place_id}
     details_resp = requests.get(details_url, params=details_payload)
     details_json = details_resp.json()
 
-    with open('current_page_data.json', 'w') as fp:
+    with open('current_gmaps_page_data_for_url.json', 'w') as fp:
         json.dump(details_json, fp)
 
     url = details_json["result"]["url"]
@@ -111,8 +105,13 @@ def call_wiki_found_page(title):
 
 
 if __name__ == "__main__":
-    call_by_name = call_google_maps_positionnement("openclassrooms")
-    call_google_maps_details(call_by_name[0])
+    from .views import app
+
+    app.config.from_object('config')
+    key = app.config["MAPS_API_KEY"]
+
+    call_by_name = call_google_maps_positionnement(key, "openclassrooms")
+    call_google_maps_details(key, call_by_name[0])
     call_wiki_by_geocoordinates(call_by_name[1])
     call_wiki_main_page("openclassrooms")
     call_wiki_found_page("openclassrooms")
