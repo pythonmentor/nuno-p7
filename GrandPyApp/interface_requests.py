@@ -105,10 +105,8 @@ def call_wiki_found_page(title):
 
 
 if __name__ == "__main__":
-    from .views import app
-
-    app.config.from_object('config')
-    key = app.config["MAPS_API_KEY"]
+    from GrandPy import config
+    key = config.MAPS_API_KEY
 
     call_by_name = call_google_maps_positionnement(key, "openclassrooms")
     call_google_maps_details(key, call_by_name[0])

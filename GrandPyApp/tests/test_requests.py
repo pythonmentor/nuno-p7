@@ -11,6 +11,7 @@ import json
 
 key = MAPS_API_KEY
 
+
 def test_call_google_maps(monkeypatch):
     results_test = {
       'html_attributions': [],
@@ -56,11 +57,14 @@ def test_call_google_maps(monkeypatch):
     location_test = results_test["results"][0]["geometry"]["location"]
     adress_test = results_test["results"][0]["formatted_address"]
 
-    assert call_google_maps_positionnement(key,
+    assert call_google_maps_positionnement(
+      key,
       "openclassrooms")[0] == place_id_test
-    assert call_google_maps_positionnement(key,
+    assert call_google_maps_positionnement(
+      key,
       "openclassrooms")[1] == location_test
-    assert call_google_maps_positionnement(key,
+    assert call_google_maps_positionnement(
+      key,
       "openclassrooms")[2] == adress_test
 
 
