@@ -1,4 +1,9 @@
-from ..scripts_py import interface_requests as req
+from ..interface_requests import (
+  call_google_maps_details,
+  call_google_maps_positionnement,
+  call_wiki_by_geocoordinates,
+  call_wiki_found_page, call_wiki_main_page
+  )
 import urllib.request
 from io import BytesIO
 import json
@@ -39,7 +44,7 @@ def test_call_google_maps(monkeypatch):
           'types': ['point_of_interest', 'establishment'],
           'user_ratings_total': 25}],
       'status': 'OK'}
-      
+
     def mockreturn(request):
         return BytesIO(json.dumps(results_test).encode())
 
@@ -49,11 +54,11 @@ def test_call_google_maps(monkeypatch):
     location_test = results_test["results"][0]["geometry"]["location"]
     adress_test = results_test["results"][0]["formatted_address"]
 
-    assert req.call_google_maps_positionnement(
+    assert call_google_maps_positionnement(
       "openclassrooms")[0] == place_id_test
-    assert req.call_google_maps_positionnement(
+    assert call_google_maps_positionnement(
       "openclassrooms")[1] == location_test
-    assert req.call_google_maps_positionnement(
+    assert call_google_maps_positionnement(
       "openclassrooms")[2] == adress_test
 
 
