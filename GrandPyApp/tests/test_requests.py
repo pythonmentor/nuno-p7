@@ -4,10 +4,12 @@ from ..interface_requests import (
   call_wiki_by_geocoordinates,
   call_wiki_found_page, call_wiki_main_page
   )
+from .config import MAPS_API_KEY
 import urllib.request
 from io import BytesIO
 import json
 
+key = MAPS_API_KEY
 
 def test_call_google_maps(monkeypatch):
     results_test = {
@@ -54,11 +56,11 @@ def test_call_google_maps(monkeypatch):
     location_test = results_test["results"][0]["geometry"]["location"]
     adress_test = results_test["results"][0]["formatted_address"]
 
-    assert call_google_maps_positionnement(
+    assert call_google_maps_positionnement(key,
       "openclassrooms")[0] == place_id_test
-    assert call_google_maps_positionnement(
+    assert call_google_maps_positionnement(key,
       "openclassrooms")[1] == location_test
-    assert call_google_maps_positionnement(
+    assert call_google_maps_positionnement(key,
       "openclassrooms")[2] == adress_test
 
 

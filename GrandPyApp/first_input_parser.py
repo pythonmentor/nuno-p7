@@ -1,8 +1,6 @@
-import sys
-sys.path.append(".")
 import re
 import string
-from ..views import app
+from .views import app
 
 app.config.from_object('config')
 

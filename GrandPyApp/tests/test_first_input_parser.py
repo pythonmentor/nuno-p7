@@ -1,5 +1,4 @@
 from ..first_input_parser import parse_user_input, important_words
-# import scripts.first_input_parser as first
 
 
 def test_parse_user_input():
