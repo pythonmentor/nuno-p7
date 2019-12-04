@@ -1,11 +1,8 @@
 import re
 import string
-from .views import app
-
-app.config.from_object('config')
 
 
-def parse_user_input(user_input):
+def parse_user_input(user_input, stop_words_custom):
     """
     Get and parse user's sentences.
     """
@@ -17,7 +14,6 @@ def parse_user_input(user_input):
     user_input = re.split(",|'| |-|;", user_input)
     user_input = [x.lower() for x in user_input]
 
-    stop_words_custom = app.config['STOP_WORDS']
     new_sentence = []
 
     for word in user_input:
@@ -28,11 +24,10 @@ def parse_user_input(user_input):
     return new_sentence
 
 
-def important_words(parsed_sentence):
+def important_words(parsed_sentence, words_to_remove):
     """
     Get a positionement word
     """
-    words_to_remove = app.config['WORDS_TO_REMOVE']
     new_sentence = []
     for word in parsed_sentence:
         if word not in words_to_remove:
@@ -43,15 +38,20 @@ def important_words(parsed_sentence):
 
 
 if __name__ == "__main__":
+    from ..views import stop_words_custom, words_to_remove
 
     print("Salut, je suis GrandPy, je suis là afin de t'aider ;-)")
 
     while True:
         user_input = input('Que veux-tu savoir mon enfant?  :  ')
-        parsed_user_input = parse_user_input(user_input)
+        parsed_user_input = parse_user_input(user_input, stop_words_custom)
 
         if len(parsed_user_input) >= 1:
-            print("Mots a envoyer", parsed_user_input)
+            print("Premier passage :  ", parsed_user_input)
             break
         else:
-            continue
+            send_to_requests = important_words(
+                parsed_user_input,
+                words_to_remove
+                )
+            print("terminé, prêt pour requête : ", send_to_requests)

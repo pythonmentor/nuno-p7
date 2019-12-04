@@ -1,0 +1,6 @@
+{
+    "files.trimTrailingWhitespace": true,
+    "python.pythonPath": "venv\\Scripts\\python.exe",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": false
+}

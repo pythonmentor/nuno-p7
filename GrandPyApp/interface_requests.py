@@ -102,14 +102,3 @@ def call_wiki_found_page(title):
 
     pprint(data)
     return data
-
-
-if __name__ == "__main__":
-    from GrandPy import config
-    key = config.MAPS_API_KEY
-
-    call_by_name = call_google_maps_positionnement(key, "openclassrooms")
-    call_google_maps_details(key, call_by_name[0])
-    call_wiki_by_geocoordinates(call_by_name[1])
-    call_wiki_main_page("openclassrooms")
-    call_wiki_found_page("openclassrooms")
