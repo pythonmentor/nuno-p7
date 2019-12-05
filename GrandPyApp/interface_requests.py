@@ -35,7 +35,7 @@ def call_google_maps_details(key, place_id):
 # Api Wikipedia
 
 
-def call_wiki_by_geocoordinates(coordinates):
+def call_wiki_by_geocoordinates(coordinates, tittle):
 
     """
     Obtain wiki pages nearby coordinates
@@ -52,7 +52,7 @@ def call_wiki_by_geocoordinates(coordinates):
         "action": "query",
         "format": "json",
         "generator": "geosearch",
-        "titles": "Wikimedia Foundation",
+        "titles": "{}". format(tittle),
         "prop": "coordinates|pageimages",
         "ggscoord": "{}|{}". format(lat, lng)
         }
@@ -79,7 +79,8 @@ def call_wiki_main_page(title):
         }
     r = s.get(url=url, params=params)
     data = r.json()
-    pprint(data)
+    with open('wiki_tittle_main_page.json', 'w') as fp:
+        json.dump(data, fp)
     processed_title = data["query"]["search"][0]["title"]
     print(processed_title)
     return processed_title
@@ -99,6 +100,11 @@ def call_wiki_found_page(title):
     }
     r = s.get(url=url, params=params)
     data = r.json()
-
-    pprint(data)
+    with open('wiki_found_page.json', 'w') as fp:
+        json.dump(data, fp)
     return data
+
+
+if __name__ == "__main__":
+    call_wiki_main_page("openclassrooms")
+    call_wiki_found_page("openclassrooms")
