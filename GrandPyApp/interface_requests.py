@@ -35,38 +35,6 @@ def call_google_maps_details(key, place_id):
 # Api Wikipedia
 
 
-def call_wiki_by_geocoordinates(coordinates, tittle):
-
-    """
-    Obtain wiki pages nearby coordinates
-
-    """
-    lat = coordinates['lat']
-    lng = coordinates['lng']
-
-    s = requests.Session()
-
-    url = "https://fr.wikipedia.org/w/api.php"
-
-    params = {
-        "action": "query",
-        "format": "json",
-        "generator": "geosearch",
-        "titles": "{}". format(tittle),
-        "prop": "coordinates|pageimages",
-        "ggscoord": "{}|{}". format(lat, lng)
-        }
-
-    r = s.get(url=url, params=params)
-    data = r.json()
-    with open('wiki_title_data_by_coordinates.json', 'w') as fp:
-        json.dump(data, fp)
-    pprint(data)
-    pages = data['query']['pages']
-
-    return pages
-
-
 def call_wiki_main_page(title):
     """Call Api Wikipedia"""
     s = requests.Session()
@@ -82,29 +50,26 @@ def call_wiki_main_page(title):
     with open('wiki_tittle_main_page.json', 'w') as fp:
         json.dump(data, fp)
     processed_title = data["query"]["search"][0]["title"]
-    print(processed_title)
-    return processed_title
+    pageid = data["query"]["search"][0]["pageid"]
+    return processed_title, pageid
 
 
-def call_wiki_found_page(title):
+def call_wiki_found_page(pageid):
     s = requests.Session()
 
     url = "https://fr.wikipedia.org/w/api.php"
     params = {
-        "titles": "{}".format(title),
-        "action": "query",
-        "prop": "extracts",
-        "exsentences": "3",
-        "format": "json",
-        "exlimit": "max",
+        'action': "query",
+        'pageids': pageid,
+        'format': "json",
+        'prop': 'extracts',
+        'explaintext': 1,
+        'exsentences': 2,
     }
     r = s.get(url=url, params=params)
     data = r.json()
     with open('wiki_found_page.json', 'w') as fp:
         json.dump(data, fp)
-    return data
+    text = data['query']['pages'][str(pageid)]['extract']
+    return text
 
-
-if __name__ == "__main__":
-    call_wiki_main_page("openclassrooms")
-    call_wiki_found_page("openclassrooms")

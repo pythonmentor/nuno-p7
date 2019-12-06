@@ -1,7 +1,6 @@
 from ..interface_requests import (
   call_google_maps_details,
   call_google_maps_positionnement,
-  call_wiki_by_geocoordinates,
   call_wiki_found_page, call_wiki_main_page
   )
 from ...views import app
@@ -13,40 +12,8 @@ key = app.config["MAPS_API_KEY"]
 
 
 def test_call_google_maps(monkeypatch):
-    results_test = {
-      'html_attributions': [],
-      'results': [
-        {
-          'formatted_address': '7 Cité Paradis, 75010 Paris, France',
-          'geometry': {
-            'location': {'lat': 48.8748465, 'lng': 2.3504873},
-            'viewport': {'northeast': {
-              'lat': 48.87622362989272,
-              'lng': 2.351843679892722},
-                          'southwest': {
-                            'lat': 48.87352397010727,
-                            'lng': 2.349144020107278}}},
-          'icon': 'https://maps.gstatic.com/mapfiles/place_api/\
-            icons/generic_business-71.png',
-          'id': 'dd80dc7de1802674cba35cce4e303e6862a4f3ed',
-          'name': 'Openclassrooms',
-          'opening_hours': {'open_now': False},
-          'photos': [{'height': 385,
-                          'html_attributions': ['<a '
-                                                'href="https://maps.google.com/maps/contrib/110718279865691618892/\
-                                                  photos">Openclassrooms</a>'],
-                          'photo_reference': 'CmRaAAAA6W3YUxObWTJeoPpFWPqSLV5rmctanDg8pM6NZZiIVwvz5Pvk3xCMvXuA0HLMtCpH7YQo\
-                            mRPpzh8iVkONgPps9tIi9kXm88oKLs2hlN7DzmBchLwm6EMgxtmHZH7QHrjZEhC5J1SEKFvmEtTKUtyVrXyZG\
-                              hS6nFgV7g4ddr6uTLZYJqJRdktE4g',
-                          'width': 385}],
-          'place_id': 'ChIJIZX8lhRu5kcRGwYk8Ce3Vc8',
-          'plus_code': {'compound_code': 'V9F2+W5 Paris',
-                        'global_code': '8FW4V9F2+W5'},
-          'rating': 3.3,
-          'reference': 'ChIJIZX8lhRu5kcRGwYk8Ce3Vc8',
-          'types': ['point_of_interest', 'establishment'],
-          'user_ratings_total': 25}],
-      'status': 'OK'}
+    with open("gmaps_data.json") as g_maps_data:
+      results_test = json.load(g_maps_data)
 
     def mockreturn(request):
         return BytesIO(json.dumps(results_test).encode())
@@ -68,17 +35,51 @@ def test_call_google_maps(monkeypatch):
       "openclassrooms")[2] == adress_test
 
 
-def test_call_google_maps_details():
-  pass
+def test_call_google_maps_details(monkeypatch):
+    with open("current_gmaps_page_data_for_url.json") as g_maps_url_data:
+      results_test = json.load(g_maps_url_data)
+
+    def mockreturn(request):
+        return BytesIO(json.dumps(results_test).encode())
+
+    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+
+    url = results_test["result"]["url"]
+    place_id = call_google_maps_positionnement(
+      key,
+      "openclassrooms")[0]
+
+    assert call_google_maps_details(key, place_id) == url
 
 
-def test_call_wiki_by_gecoodinates():
-  pass
+def test_call_wiki_main_page(monkeypatch):
+    with open("wiki_tittle_main_page.json") as wiki_tittle_data:
+      results_test = json.load(wiki_tittle_data)
+
+    def mockreturn(request):
+        return BytesIO(json.dumps(results_test).encode())
+
+    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+
+    processed_title = results_test["query"]["search"][0]["title"]
+    pageid = results_test["query"]["search"][0]["pageid"]
+
+    assert call_wiki_main_page(
+      "openclassrooms")[0] == processed_title
+    assert call_wiki_main_page(
+      "openclassrooms")[1] == pageid
 
 
-def test_call_wiki_main_page():
-  pass
+def test_call_wiki_found_page(monkeypatch):
+    with open("wiki_found_page.json") as wiki_found_data:
+      results_test = json.load(wiki_found_data)
 
+    def mockreturn(request):
+        return BytesIO(json.dumps(results_test).encode())
 
-def test_call_wiki_found_page():
-  pass
+    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+    pageid = call_wiki_main_page(
+      "openclassrooms")[1]
+    text = results_test['query']['pages'][str(pageid)]['extract']
+
+    assert call_wiki_found_page(pageid) == text

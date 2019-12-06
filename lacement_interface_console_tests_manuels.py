@@ -18,7 +18,6 @@ class UserInterface:
 
     call_by_name = call_google_maps_positionnement(key, "openclassrooms")
     call_google_maps_details(key, call_by_name[0])
-    call_wiki_by_geocoordinates(call_by_name[1])
     call_wiki_main_page("openclassrooms")
     call_wiki_found_page("openclassrooms")
 
