@@ -1,6 +1,7 @@
 import requests
 import json
-from pprint import pprint
+
+# Api Gmaps
 
 
 def call_google_maps_positionnement(key, tittle):

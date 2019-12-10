@@ -6,7 +6,7 @@ from GrandPyApp.interface_requests import (
     call_wiki_main_page,
     call_wiki_found_page
 )
-from views import app
+from GrandPyApp.views import app
 
 
 class UserInterface:
