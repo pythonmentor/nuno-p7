@@ -78,6 +78,7 @@ def test_call_wiki_found_page(monkeypatch):
         return BytesIO(json.dumps(results_test).encode())
 
     monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+
     pageid = call_wiki_main_page(
       "openclassrooms")[1]
     text = results_test['query']['pages'][str(pageid)]['extract']
