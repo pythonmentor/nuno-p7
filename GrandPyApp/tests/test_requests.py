@@ -12,7 +12,7 @@ key = app.config["MAPS_API_KEY"]
 
 
 def test_call_google_maps(monkeypatch):
-    with open("gmaps_data.json") as g_maps_data:
+    with open("GrandPyApp/tests/gmaps_data.json") as g_maps_data:
       results_test = json.load(g_maps_data)
 
     def mockreturn(request):
@@ -36,7 +36,7 @@ def test_call_google_maps(monkeypatch):
 
 
 def test_call_google_maps_details(monkeypatch):
-    with open("current_gmaps_page_data_for_url.json") as g_maps_url_data:
+    with open("GrandPyApp/tests/current_gmaps_page_data_for_url.json") as g_maps_url_data:
       results_test = json.load(g_maps_url_data)
 
     def mockreturn(request):
@@ -53,7 +53,7 @@ def test_call_google_maps_details(monkeypatch):
 
 
 def test_call_wiki_main_page(monkeypatch):
-    with open("wiki_tittle_main_page.json") as wiki_tittle_data:
+    with open("GrandPyApp/tests/wiki_tittle_main_page.json") as wiki_tittle_data:
       results_test = json.load(wiki_tittle_data)
 
     def mockreturn(request):
@@ -71,7 +71,7 @@ def test_call_wiki_main_page(monkeypatch):
 
 
 def test_call_wiki_found_page(monkeypatch):
-    with open("wiki_found_page.json") as wiki_found_data:
+    with open("GrandPyApp/tests/wiki_found_page.json") as wiki_found_data:
       results_test = json.load(wiki_found_data)
 
     def mockreturn(request):
