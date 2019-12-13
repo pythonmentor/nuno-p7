@@ -16,9 +16,9 @@ def test_call_google_maps(monkeypatch):
       results_test = json.load(g_maps_data)
 
     def mockreturn(request):
-        return BytesIO(json.dumps(results_test).encode())
+        return BytesIO(json.dumps(results_test).encode())# methode format jason ao lieu de bitesIO voir web binaire thierry
 
-    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+    monkeypatch.setattr(request, 'get', mockreturn) # revoir ligne afin de bien comprendre
 
     place_id_test = results_test["results"][0]["place_id"]
     location_test = results_test["results"][0]["geometry"]["location"]
