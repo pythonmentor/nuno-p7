@@ -38,7 +38,7 @@ def important_words(parsed_sentence, words_to_remove):
 
 
 if __name__ == "__main__":
-    from ..views import stop_words_custom, words_to_remove
+    from GrandPyApp.views import stop_words_custom, words_to_remove
 
     print("Salut, je suis GrandPy, je suis là afin de t'aider ;-)")
 
