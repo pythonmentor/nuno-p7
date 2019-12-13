@@ -1,9 +1,10 @@
-from ..interface_requests import (
+from GrandPyApp.interface_requests import (
   call_google_maps_details,
   call_google_maps_positionnement,
-  call_wiki_found_page, call_wiki_main_page
+  call_wiki_found_page,
+  call_wiki_main_page
   )
-from ..views import app
+from GrandPyApp.views import app
 import urllib.request
 from io import BytesIO
 import json
