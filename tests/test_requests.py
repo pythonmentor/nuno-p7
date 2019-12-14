@@ -5,8 +5,6 @@ from GrandPyApp.interface_requests import (
   call_wiki_main_page
   )
 from GrandPyApp.views import app
-import urllib.request
-from io import BytesIO
 import json
 
 key = app.config["MAPS_API_KEY"]
@@ -16,10 +14,19 @@ def test_call_google_maps(monkeypatch):
     with open("tests/gmaps_data.json") as g_maps_data:
       results_test = json.load(g_maps_data)
 
-    def mockreturn(request):
-        return BytesIO(json.dumps(results_test).encode())# methode format jason ao lieu de bitesIO voir web binaire thierry
+    class MockResponse:
+      def read(self):
+        result_strings = json.dumps(results_test)
+        result_bytes = result_strings.encode()
+        return result_bytes
 
-    monkeypatch.setattr(request, 'get', mockreturn) # revoir ligne afin de bien comprendre
+    def mock_g_maps(url):
+      return MockResponse()
+
+    monkeypatch.setattr(
+      "GrandPyApp.interface_requests.call_google_maps_positionnement",
+      mock_g_maps
+      )
 
     place_id_test = results_test["results"][0]["place_id"]
     location_test = results_test["results"][0]["geometry"]["location"]
@@ -40,10 +47,19 @@ def test_call_google_maps_details(monkeypatch):
     with open("tests/current_gmaps_page_data_for_url.json") as g_maps_url_data:
       results_test = json.load(g_maps_url_data)
 
-    def mockreturn(request):
-        return BytesIO(json.dumps(results_test).encode())
+    class MockResponse:
+      def read(self):
+        result_strings = json.dumps(results_test)
+        result_bytes = result_strings.encode()
+        return result_bytes
 
-    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+    def mock_g_maps_details(url):
+      return MockResponse()
+
+    monkeypatch.setattr(
+      "GrandPyApp.interface_requests.call_google_maps_details",
+      mock_g_maps_details
+      )
 
     url = results_test["result"]["url"]
     place_id = call_google_maps_positionnement(
@@ -57,10 +73,19 @@ def test_call_wiki_main_page(monkeypatch):
     with open("tests/wiki_tittle_main_page.json") as wiki_tittle_data:
       results_test = json.load(wiki_tittle_data)
 
-    def mockreturn(request):
-        return BytesIO(json.dumps(results_test).encode())
+    class MockResponse:
+      def read(self):
+        result_strings = json.dumps(results_test)
+        result_bytes = result_strings.encode()
+        return result_bytes
 
-    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+    def mock_call_wiki_main_page(url):
+      return MockResponse()
+
+    monkeypatch.setattr(
+      "GrandPyApp.interface_requests.call_wiki_main_page",
+      mock_call_wiki_main_page
+      )
 
     processed_title = results_test["query"]["search"][0]["title"]
     pageid = results_test["query"]["search"][0]["pageid"]
@@ -75,10 +100,19 @@ def test_call_wiki_found_page(monkeypatch):
     with open("tests/wiki_found_page.json") as wiki_found_data:
       results_test = json.load(wiki_found_data)
 
-    def mockreturn(request):
-        return BytesIO(json.dumps(results_test).encode())
+    class MockResponse:
+      def read(self):
+        result_strings = json.dumps(results_test)
+        result_bytes = result_strings.encode()
+        return result_bytes
 
-    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
+    def mock_call_wiki_found_page(url):
+      return MockResponse()
+
+    monkeypatch.setattr(
+      "GrandPyApp.interface_requests.call_wiki_found_page",
+      mock_call_wiki_found_page
+      )
 
     pageid = call_wiki_main_page(
       "openclassrooms")[1]
