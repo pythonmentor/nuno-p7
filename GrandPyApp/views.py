@@ -1,7 +1,7 @@
 from flask import Flask
-from GrandPyApp import (
-    first_imput_parser,
-
+from .first_input_parser import (
+    parse_user_input,
+    important_words
 )
 
 app = Flask(__name__)
