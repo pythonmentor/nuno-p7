@@ -1,10 +1,11 @@
 import json
-import os
+import secret
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = secret.SECRET_KEY
 
-MAPS_API_KEY = os.getenv("API_PASSWORD")
+MAPS_API_KEY = secret.API_PASSWORD
 
+print(MAPS_API_KEY)
 with open("stop_words.json") as json_stop_words:
     STOP_WORDS = json.load(json_stop_words)
 
