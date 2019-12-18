@@ -1,6 +1,6 @@
 from GrandPyApp.interface_requests import (
-  call_google_maps_details,
   call_google_maps_positionnement,
+  call_google_maps_details,
   call_wiki_found_page,
   call_wiki_main_page
   )
@@ -41,6 +41,10 @@ def test_call_google_maps(monkeypatch):
     assert call_google_maps_positionnement(
       key,
       "openclassrooms")[2] == adress_test
+    assert call_google_maps_positionnement(
+      key,
+      "") == "Desolé je n'ai pas pu t'aider mon petit, peut-tu " + \
+        "refaire ta demande autrement stp? Tu sais avec mon age..."
 
 
 def test_call_google_maps_details(monkeypatch):

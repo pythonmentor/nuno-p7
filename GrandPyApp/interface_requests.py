@@ -9,11 +9,17 @@ def call_google_maps_positionnement(key, tittle):
     search_req = requests.get(search_url, params=search_payload)
     search_json = search_req.json()
 
-    place_id = search_json["results"][0]["place_id"]
-    location = search_json["results"][0]["geometry"]["location"]
-    adress = search_json["results"][0]["formatted_address"]
+    try:
+        place_id = search_json["results"][0]["place_id"]
+        location = search_json["results"][0]["geometry"]["location"]
+        adress = search_json["results"][0]["formatted_address"]
 
-    return place_id, location, adress
+        return place_id, location, adress
+
+    except IndexError:
+        search_json = "Desolé je n'ai pas pu t'aider mon petit, peut-tu " + \
+            "refaire ta demande autrement stp? Tu sais avec mon age..."
+        return search_json
 
 
 def call_google_maps_details(key, place_id):
@@ -41,10 +47,15 @@ def call_wiki_main_page(title):
         }
     r = s.get(url=url, params=params)
     data = r.json()
-    # incorporer if etc.. por repeter la requete en cas d'error
-    processed_title = data["query"]["search"][0]["title"]
-    pageid = data["query"]["search"][0]["pageid"]
-    return processed_title, pageid
+
+    try:
+        processed_title = data["query"]["search"][0]["title"]
+        pageid = data["query"]["search"][0]["pageid"]
+        return processed_title, pageid
+
+    except KeyError:
+        return "Ups je n'ai pas trouvé ce que tu me demandes," + \
+            " on vas devoir changer de conversation!"
 
 
 def call_wiki_found_page(pageid):
