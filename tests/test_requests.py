@@ -119,3 +119,5 @@ def test_call_wiki_found_page(monkeypatch):
     text = results_test['query']['pages'][str(pageid)]['extract']
 
     assert call_wiki_found_page(pageid) == text
+
+  # tester les errors

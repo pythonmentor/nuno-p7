@@ -1,5 +1,4 @@
 import requests
-import json
 
 # Api Gmaps
 
@@ -42,7 +41,7 @@ def call_wiki_main_page(title):
         }
     r = s.get(url=url, params=params)
     data = r.json()
-
+    # incorporer if etc.. por repeter la requete en cas d'error
     processed_title = data["query"]["search"][0]["title"]
     pageid = data["query"]["search"][0]["pageid"]
     return processed_title, pageid
@@ -65,4 +64,3 @@ def call_wiki_found_page(pageid):
 
     text = data['query']['pages'][str(pageid)]['extract']
     return text
-
