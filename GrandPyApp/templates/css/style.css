@@ -31,20 +31,38 @@ h3
 .footer
 {
   position: fixed;
-  padding-bottom: 5%;
+  padding-bottom: 10%%;
   width: 100%;
   font-size: 20px;
-  text-align: center;
+  text-align: left;
   color: white;
   background-color: rgb(11, 125, 240);
   bottom: 0;
   left: 0;
-  right: 0
+  right: 0;
+}
+.mail
+{
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.git
+{
+  width: 13%;
+  height: 30px;
+  object-fit: contain;
+}
+.link
+{
+  width: 12%;
+  height: 30px;
+  object-fit: contain;
 }
 .superPapy
 {
   position: fixed;
-  top: 30%;
+  top: 28%;
   right: 60%;
   bottom: auto;
   margin: 30px;
