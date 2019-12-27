@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 from .first_input_parser import (
     parse_user_input,
     important_words
@@ -15,7 +15,7 @@ words_to_remove = app.config['WORDS_TO_REMOVE']
 
 @app.route('/')
 def index():
-    return "Hello world !"
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
