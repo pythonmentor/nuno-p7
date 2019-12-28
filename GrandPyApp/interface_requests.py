@@ -55,7 +55,7 @@ def call_wiki_main_page(title):
 
     except KeyError:
         return "Ups je n'ai pas trouvé ce que tu me demandes," + \
-            " on vas devoir changer de conversation!"
+            " on vas devoir changer de conversation, tu veux?"
 
 
 def call_wiki_found_page(pageid):
