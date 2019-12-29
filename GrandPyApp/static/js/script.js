@@ -5,7 +5,7 @@ var $messages = $('.messages-content'),
 $(window).load(function() {
   $messages.mCustomScrollbar();
   setTimeout(function() {
-    fakeMessage();
+    grandPyMessage();
   }, 100);
 });
 
@@ -27,6 +27,7 @@ function setDate(){
   }
 }
 
+
 function insertMessage() {
   msg = $('.message-input').val();
   if ($.trim(msg) == '') {
@@ -34,11 +35,29 @@ function insertMessage() {
   }
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
-  $('.message-input').val(null);
   updateScrollbar();
   setTimeout(function() {
     fakeMessage();
   }, 1000 + (Math.random() * 20) * 100);
+  var url = "/process";
+  function ajaxPost(url, msg, callback) {
+    var req = new XMLHttpRequest();
+    req.open("POST", url);
+    req.responseType = "json";
+    req.addEventListener("load", function () {
+        if (req.status >= 200 && req.status < 400) {
+            // Appelle la fonction callback en lui passant la réponse de la requête
+            callback(req.response);
+        } else {
+            console.error(req.status + " " + req.statusText + " " + url);
+        }
+    });
+    req.addEventListener("error", function () {
+        console.error("Erreur réseau avec l'URL " + url);
+    });
+    req.send(msg);
+    $('.message-input').val(null);
+  }
 }
 
 $('.message-submit').click(function() {
@@ -52,34 +71,33 @@ $(window).on('keydown', function(e) {
   }
 })
 
-var Fake = [
-  'Hi there, I\'m Jesse and you?',
-  'Nice to meet you',
-  'How are you?',
-  'Not too bad, thanks',
-  'What do you do?',
-  'That\'s awesome',
-  'Codepen is a nice place to stay',
-  'I think you\'re a nice person',
-  'Why do you think that?',
-  'Can you explain?',
-  'Anyway I\'ve gotta go now',
-  'It was a pleasure chat with you',
-  'Time to make a new codepen',
-  'Bye',
-  ':)'
-]
-
-function fakeMessage() {
+function grandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
 
+function ajaxGet(url, callback) {
+  var req = new XMLHttpRequest();
+  var url = "/index"
+  req.open("GET", url);
+  req.addEventListener("load", function () {
+      if (req.status >= 200 && req.status < 400) {
+          // Appelle la fonction callback en lui passant la réponse de la requête
+          callback(req.responseText);
+      } else {
+          console.error(req.status + " " + req.statusText + " " + url);
+      }
+  });
+  req.addEventListener("error", function () {
+      console.error("Erreur réseau avec l'URL " + url);
+  });
+  req.send(null);
+  }
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + req.responseText + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
     i++;
@@ -89,5 +107,5 @@ function fakeMessage() {
 
 $('.button').click(function(){
   $('.menu .items span').toggleClass('active');
-   $('.menu .button').toggleClass('active');
+  $('.menu .button').toggleClass('active');
 });
