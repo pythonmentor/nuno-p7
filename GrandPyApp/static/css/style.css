@@ -18,6 +18,7 @@ Head
 --------------------*/
 h3
 {
+  width: 100%;
   font-size: 30px;
   text-align: center;
   color: white;
@@ -34,7 +35,7 @@ h3
   position: fixed;
   width: 100%;
   font-size: 20px;
-  text-align: left;
+  text-align: center;
   color: white;
   background-color: rgb(11, 125, 240);
   bottom: 0;
