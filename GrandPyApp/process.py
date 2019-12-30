@@ -17,7 +17,7 @@ def grandPyWork(message, app):
     g_maps_key = app.config["MAPS_API_KEY"]
     stop_words_custom = app.config['STOP_WORDS']
     words_to_remove = app.config['WORDS_TO_REMOVE']
-
+    print(message)
     parced_msg = parse_user_input(message, stop_words_custom)
     msg_to_api_requests = important_words(parced_msg, words_to_remove)
     msg_gmaps = call_google_maps_positionnement(
@@ -40,3 +40,4 @@ def grandPyWork(message, app):
             " je te montre?, un dessin ? " + msg_gmaps_url
         ]
         return message
+

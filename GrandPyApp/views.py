@@ -14,8 +14,8 @@ def home():
 @app.route('/process', methods=['GET', 'POST'])
 def process():
     if request.method == 'POST':
-        input_value = request.data.decode("utf-8")
-        return jsonify({"phrase_user": grandPyWork(input_value, app)})
+        input_value = request.args.get('message')
+        return jsonify({"message": grandPyWork(input_value, app)})
 
 
 if __name__ == "__main__":

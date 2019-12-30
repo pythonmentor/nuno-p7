@@ -34,18 +34,6 @@ function insertMessage() {
   }
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
-  $.ajax({
-    url: '/process',
-    type: 'POST',
-    dataType: 'JSON',
-    data: {'phrase_user': msg},
-    success: function () {
-      alert('je cherche mon enfant')
-    },
-    error: function () {
-      alert("connexion vue '/process' impossible");
-    }
-  })
   $('.message-input').val(null);
   updateScrollbar();
   setTimeout(function() {
@@ -88,21 +76,9 @@ function fakeMessage() {
   }
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
-  $.ajax({
-    url: '/process',
-    type: 'GET',
-    dataType: 'JSON',
-    data: {'phrase_user': msg},
-    success: function () {
-      alert(msg)
-    },
-    error: function () {
-      alert("connexion vue '/process' impossible");
-    }
-  })
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
     i++;
