@@ -12,16 +12,16 @@ key = app.config["MAPS_API_KEY"]
 
 def test_call_google_maps(monkeypatch):
     with open("tests/gmaps_data.json") as g_maps_data:
-      results_test = json.load(g_maps_data)
+        results_test = json.load(g_maps_data)
 
     class MockResponse:
-      def read(self):
-        result_strings = json.dumps(results_test)
-        result_bytes = result_strings.encode()
-        return result_bytes
+        def read(self):
+            result_strings = json.dumps(results_test)
+            result_bytes = result_strings.encode()
+            return result_bytes
 
     def mock_g_maps(url):
-      return MockResponse()
+        return MockResponse()
 
     monkeypatch.setattr(
       "GrandPyApp.interface_requests.call_google_maps_positionnement",
@@ -49,16 +49,16 @@ def test_call_google_maps(monkeypatch):
 
 def test_call_google_maps_details(monkeypatch):
     with open("tests/current_gmaps_page_data_for_url.json") as g_maps_url_data:
-      results_test = json.load(g_maps_url_data)
+        results_test = json.load(g_maps_url_data)
 
     class MockResponse:
-      def read(self):
-        result_strings = json.dumps(results_test)
-        result_bytes = result_strings.encode()
-        return result_bytes
+        def read(self):
+            result_strings = json.dumps(results_test)
+            result_bytes = result_strings.encode()
+            return result_bytes
 
     def mock_g_maps_details(url):
-      return MockResponse()
+        return MockResponse()
 
     monkeypatch.setattr(
       "GrandPyApp.interface_requests.call_google_maps_details",
@@ -75,16 +75,16 @@ def test_call_google_maps_details(monkeypatch):
 
 def test_call_wiki_main_page(monkeypatch):
     with open("tests/wiki_tittle_main_page.json") as wiki_tittle_data:
-      results_test = json.load(wiki_tittle_data)
+        results_test = json.load(wiki_tittle_data)
 
     class MockResponse:
-      def read(self):
-        result_strings = json.dumps(results_test)
-        result_bytes = result_strings.encode()
-        return result_bytes
+        def read(self):
+            result_strings = json.dumps(results_test)
+            result_bytes = result_strings.encode()
+            return result_bytes
 
     def mock_call_wiki_main_page(url):
-      return MockResponse()
+        return MockResponse()
 
     monkeypatch.setattr(
       "GrandPyApp.interface_requests.call_wiki_main_page",
@@ -102,16 +102,16 @@ def test_call_wiki_main_page(monkeypatch):
 
 def test_call_wiki_found_page(monkeypatch):
     with open("tests/wiki_found_page.json") as wiki_found_data:
-      results_test = json.load(wiki_found_data)
+        results_test = json.load(wiki_found_data)
 
     class MockResponse:
-      def read(self):
-        result_strings = json.dumps(results_test)
-        result_bytes = result_strings.encode()
-        return result_bytes
+        def read(self):
+            result_strings = json.dumps(results_test)
+            result_bytes = result_strings.encode()
+            return result_bytes
 
     def mock_call_wiki_found_page(url):
-      return MockResponse()
+        return MockResponse()
 
     monkeypatch.setattr(
       "GrandPyApp.interface_requests.call_wiki_found_page",
