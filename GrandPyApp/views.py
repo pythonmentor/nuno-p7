@@ -11,11 +11,14 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/process', methods=['GET', 'POST'])
+@app.route('/process', methods=['POST'])
 def process():
     if request.method == 'POST':
-        input_value = request.args.get('message')
-        return jsonify({"message": grandPyWork(input_value, app)})
+        input_value = request.form['messageInput']
+        print(input_value)
+        result = grandPyWork(input_value, app)
+        print(result)
+        return jsonify(result)
 
 
 if __name__ == "__main__":
