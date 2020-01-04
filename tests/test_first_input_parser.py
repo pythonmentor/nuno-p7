@@ -21,7 +21,10 @@ def test_important_words():
     test_user_input = "Bonjour GrandPy peut-tu me donner l'adresse"\
         " d'openclassrooms stp?"
     test_first_pass = parse_user_input(test_user_input, stop_words_custom)
-    assert important_words(test_first_pass, words_to_remove) == "openclassrooms"
+    assert important_words(
+        test_first_pass,
+        words_to_remove
+        ) == "openclassrooms"
 
 
 def test_important_words_2():
@@ -35,7 +38,10 @@ def test_important_words_3():
     test_user_input_3 = "Hi, peut-tu me trouver ou se situe la ville"\
         " de Porto au Portugal stp?"
     test_third_pass = parse_user_input(test_user_input_3, stop_words_custom)
-    assert important_words(test_third_pass, words_to_remove) == "ville porto portugal"
+    assert important_words(
+        test_third_pass,
+        words_to_remove
+        ) == "ville porto portugal"
 
 
 def test_important_words_4():

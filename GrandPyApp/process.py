@@ -23,7 +23,7 @@ def grandPyWork(message, app):
     wiki_title = call_wiki_main_page(parced_msg)
 
     if msg_gmaps[2] == IndexError or wiki_title[1] == IndexError:
-        return {"message": msg_gmaps}
+        return {"error": msg_gmaps}
     else:
         msg_gmaps_url = call_google_maps_details(g_maps_key, msg_gmaps[0])
         wiki_title = call_wiki_main_page(parced_msg)

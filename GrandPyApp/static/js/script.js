@@ -5,7 +5,7 @@ var $messages = $('.messages-content'),
 $(window).load(function() {
   $messages.mCustomScrollbar();
   setTimeout(function() {
-    grandPyMessage("none");
+    firstGrandPyMessage();
   }, 100);
 });
 
@@ -38,10 +38,7 @@ function insertMessage() {
   getMessageGrandPy(msg)
   $('.message-input').val(null);
   updateScrollbar();
-  setTimeout(function() {
-    grandPyMessage();
-  },
-  1000 + (Math.random() * 20) * 100);
+    /*grandPyMessage();*/
 };
 
 function getMessageGrandPy(msg) {
@@ -50,8 +47,17 @@ function getMessageGrandPy(msg) {
     type : 'POST',
     url : '/process',
     dataType: "json",
-    success: function(data) {
-      grandPyMessage(data.message);
+    success: function(messages) {
+      $.each(messages, function(message) {
+        $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+        updateScrollbar();
+        setTimeout(function() {
+          $('.message.loading').remove();
+          $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+          setDate();
+          updateScrollbar();
+        }, 1000 + (Math.random() * 20) * 100);
+      });
     },
   });
 };
@@ -67,37 +73,23 @@ $(window).on('keydown', function(e) {
   };
 });
 
-
-function grandPyMessage(msg) {
+function firstGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
-  if (msg == "none") {
-    msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
-    " trouver des lieux mais je suis un peut rouillé"+
-    " alors sois gentil avec moi,j'aime bien radotter sur"+
-    " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz"
+  msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
+  " trouver des lieux mais je suis un peut rouillé"+
+  " alors sois gentil avec moi,j'aime bien radotter sur"+
+  " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz"
 
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
+  setTimeout(function() {
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
     updateScrollbar();
-    setTimeout(function() {
-      $('.message.loading').remove();
-      $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-      setDate();
-      updateScrollbar();
-    }, 1000 + (Math.random() * 20) * 100);
-  };
-  if (Array.isArray(msg)) {
-    msg.forEach((item) => { $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-    updateScrollbar();
-    setTimeout(function() {
-      $('.message.loading').remove();
-      $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + item + '</div>').appendTo($('.mCSB_container')).addClass('new');
-      setDate();
-      updateScrollbar();
-    }, 1000 + (Math.random() * 20) * 100);
-    });
-  };
+  }, 1000 + (Math.random() * 20) * 100);
 };
 
 $('.button').click(function(){

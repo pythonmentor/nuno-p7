@@ -1,4 +1,4 @@
-from GrandPyApp.interface_requests import (
+from zGrandPyApp.interface_requests import (
   call_google_maps_positionnement,
   call_google_maps_details,
   call_wiki_found_page,
