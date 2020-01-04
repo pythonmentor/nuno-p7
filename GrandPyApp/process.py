@@ -33,9 +33,9 @@ def grandPyWork(message, app):
                         "Et donc tu veux savoir tout sur " + wiki_title[0],
                         "Coquinou, quand même!\n",
                         "Et bein oui c'est au " + msg_gmaps[2],
-                        "pas bête la bête!\n",
+                        "Pas bête la bête!\n",
                         "En plus ce-ci est cadeau, gratos, rien que pour toi",
-                        " a propos de ta demande et pour la petitte histoire quand même: " + history,
+                        "A propos de ta demande et pour la petitte histoire quand même: " + history,
                         "Je te montre?, un dessin ? " + msg_gmaps_url,
                         "Voilà petit fou! Une autre Question a me soumetre ?"
                     ]}
