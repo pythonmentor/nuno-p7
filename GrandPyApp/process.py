@@ -23,20 +23,20 @@ def grandPyWork(message, app):
     wiki_title = call_wiki_main_page(parced_msg)
 
     if msg_gmaps[2] == IndexError or wiki_title[1] == IndexError:
-        return {"error": msg_gmaps}
+        return {"messages": msg_gmaps}
     else:
         msg_gmaps_url = call_google_maps_details(g_maps_key, msg_gmaps[0])
         wiki_title = call_wiki_main_page(parced_msg)
         history = call_wiki_found_page(wiki_title[1])
 
-        message = {"message": [
+        message = {"messages": [
                         "Et donc tu veux savoir tout sur " + wiki_title[0],
-                        "Coquinou, quand même!\n",
+                        "Coquinou, quand même!\n" +
                         "Et bein oui c'est au " + msg_gmaps[2],
                         "Pas bête la bête!\n",
                         "En plus ce-ci est cadeau, gratos, rien que pour toi",
-                        "A propos de ta demande et pour la petitte histoire quand même: " + history,
-                        "Je te montre?, un dessin ? " + msg_gmaps_url,
-                        "Voilà petit fou! Une autre Question a me soumetre ?"
-                    ]}
+                        "A propos de ta demande et pour la petitte" +
+                        " histoire :" + history,
+                        "Je te montre? " + msg_gmaps_url,
+                        ]}
         return message

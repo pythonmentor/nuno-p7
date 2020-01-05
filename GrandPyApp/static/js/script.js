@@ -35,20 +35,19 @@ function insertMessage() {
   }
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
-  getMessageGrandPy(msg)
   $('.message-input').val(null);
   updateScrollbar();
-    /*grandPyMessage();*/
+  getMessageGrandPy(msg);
 };
 
 function getMessageGrandPy(msg) {
-   $.ajax({
+  $.ajax({
     data : {messageInput : msg},
     type : 'POST',
     url : '/process',
     dataType: "json",
-    success: function(messages) {
-      $.each(messages, function(message) {
+    success: function(data) {
+      data.messages.forEach(function(message) {
         $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
         updateScrollbar();
         setTimeout(function() {
@@ -56,7 +55,7 @@ function getMessageGrandPy(msg) {
           $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
           setDate();
           updateScrollbar();
-        }, 1000 + (Math.random() * 20) * 100);
+        }, 3000 + (Math.random() * 40) * 400);
       });
     },
   });
@@ -72,7 +71,7 @@ $(window).on('keydown', function(e) {
     return false;
   };
 });
-
+last = "Voilà petit fou! Une autre Question a me soumetre ?"
 function firstGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
@@ -91,7 +90,20 @@ function firstGrandPyMessage() {
     updateScrollbar();
   }, 1000 + (Math.random() * 20) * 100);
 };
-
+function lastGrandPyMessage() {
+  if ($('.message-input').val() != '') {
+    return false;
+  }
+  last = "Voilà petit fou! Une autre question a me soumetre ? Profite je suis de bonne humeur!"
+  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
+  setTimeout(function() {
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + last + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    updateScrollbar();
+  }, 1000 + (Math.random() * 20) * 100);
+};
 $('.button').click(function(){
   $('.menu .items span').toggleClass('active');
    $('.menu .button').toggleClass('active');
