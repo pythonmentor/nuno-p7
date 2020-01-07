@@ -1,6 +1,5 @@
 from zGrandPyApp.interface_requests import (
   call_google_maps_positionnement,
-  call_google_maps_details,
   call_wiki_found_page,
   call_wiki_main_page
   )
@@ -45,32 +44,6 @@ def test_call_google_maps(monkeypatch):
       key,
       "") == "Desolé je n'ai pas pu t'aider mon petit, peut-tu " + \
         "refaire ta demande autrement stp? Tu sais avec mon age..."
-
-
-def test_call_google_maps_details(monkeypatch):
-    with open("tests/current_gmaps_page_data_for_url.json") as g_maps_url_data:
-        results_test = json.load(g_maps_url_data)
-
-    class MockResponse:
-        def read(self):
-            result_strings = json.dumps(results_test)
-            result_bytes = result_strings.encode()
-            return result_bytes
-
-    def mock_g_maps_details(url):
-        return MockResponse()
-
-    monkeypatch.setattr(
-      "GrandPyApp.interface_requests.call_google_maps_details",
-      mock_g_maps_details
-      )
-
-    url = results_test["result"]["url"]
-    place_id = call_google_maps_positionnement(
-      key,
-      "openclassrooms")[0]
-
-    assert call_google_maps_details(key, place_id) == url
 
 
 def test_call_wiki_main_page(monkeypatch):

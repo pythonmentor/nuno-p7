@@ -21,17 +21,6 @@ def call_google_maps_positionnement(key, tittle):
             "refaire ta demande autrement stp? Tu sais avec mon age..."
         return search_json
 
-
-def call_google_maps_details(key, place_id):
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json"
-    details_payload = {"key": key, "placeid": place_id}
-    details_resp = requests.get(details_url, params=details_payload)
-    details_json = details_resp.json()
-
-    url = details_json["result"]["url"]
-
-    return url
-
 # Api Wikipedia
 
 
@@ -58,6 +47,11 @@ def call_wiki_main_page(title):
             "Ups je n'ai pas trouvé ce que tu me demandes,",
             "On vas devoir changer de conversation, tu veux?"
         ]
+    except IndexError:
+        return [
+            "Ups je n'ai pas trouvé ce que tu me demandes,",
+            "On vas devoir changer de conversation, tu veux?"
+        ]
 
 
 def call_wiki_found_page(pageid):
@@ -70,7 +64,7 @@ def call_wiki_found_page(pageid):
         'format': "json",
         'prop': 'extracts',
         'explaintext': 1,
-        'exsentences': 2,
+        'exsentences': 6,
     }
     r = s.get(url=url, params=params)
     data = r.json()

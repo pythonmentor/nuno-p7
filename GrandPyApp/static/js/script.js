@@ -17,6 +17,17 @@ function updateScrollbar() {
   });
 }
 
+function grandPyMessage(message) {
+  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
+  setTimeout(function() {
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    updateScrollbar();
+  }, 3000);
+}
+
 function setDate(){
   d = new Date()
   if (m != d.getMinutes()) {
@@ -29,7 +40,6 @@ function setDate(){
 
 function insertMessage() {
   msg = $('.message-input').val();
-  console.log(msg);
   if ($.trim(msg) == '') {
     return false;
   }
@@ -48,15 +58,26 @@ function getMessageGrandPy(msg) {
     dataType: "json",
     success: function(data) {
       data.messages.forEach(function(message) {
-        $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-        updateScrollbar();
-        setTimeout(function() {
-          $('.message.loading').remove();
-          $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
-          setDate();
-          updateScrollbar();
-        }, 3000 + (Math.random() * 40) * 400);
+        grandPyMessage(message);
       });
+      grandPyMessage(initMap(data.position));
+      function initMap(position) {
+        map = document.createElement('div');
+        map.classList.add('map');
+        map = new google.maps.Map(map, {
+          center: position,
+          zoom: 15,
+        });
+        map.style = 'height: 20em';
+        marker = new google.maps.Marker({
+          position: position,
+          map: map,
+        });
+        /*return [map, marker];*/
+      }
+      /*let [map, marker] = initMap(position);*/
+      grandPyMessage(initMap(position));
+      lastGrandPyMessage();
     },
   });
 };
@@ -79,32 +100,21 @@ function firstGrandPyMessage() {
   msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
   " trouver des lieux mais je suis un peut rouillé"+
   " alors sois gentil avec moi,j'aime bien radotter sur"+
-  " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz"
+  " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "+
+  " Tu peut aussi demander une blague, j'en connais quelques unes!!"
 
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-  }, 1000 + (Math.random() * 20) * 100);
+  grandPyMessage(msg);
 };
 function lastGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
   last = "Voilà petit fou! Une autre question a me soumetre ? Profite je suis de bonne humeur!"
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + last + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-  }, 1000 + (Math.random() * 20) * 100);
+  grandPyMessage(last);
 };
+
 $('.button').click(function(){
   $('.menu .items span').toggleClass('active');
    $('.menu .button').toggleClass('active');
 });
+
