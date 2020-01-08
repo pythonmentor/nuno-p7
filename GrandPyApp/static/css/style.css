@@ -5,13 +5,12 @@
 }
 
 body {
-  position: relative;
+  position: fixed;
   height: 100%;
   background: url('../images/backGround.jpg');
   font-family: 'Avenir', 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 1.3;
-  padding-bottom: 5em;
 }
 /*--------------------
 Head
@@ -19,8 +18,9 @@ Head
 h3
 {
   width: 100%;
-  font-size: 30px;
-  text-align: center;
+  font-size: 40px;
+  text-align: left;
+  padding-left: 250px;
   color: white;
   background-color: rgb(11, 125, 240);
   position: fixed;
@@ -32,20 +32,22 @@ h3
 #map
 {
   height: 400px;
-  width: 720px;
+  width: 700px;
   border-radius: 20px 20px 20px 0;
 }
 .footer
 {
-  position: fixed;
+  position:fixed;
+  padding-left: 150px;
   width: 100%;
+  height:25%;
   font-size: 20px;
-  text-align: center;
+  text-align: left;
   color: white;
   background-color: rgb(11, 125, 240);
-  bottom: 0;
-  left: 0;
-  right: 0;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 .mail
 {
@@ -54,7 +56,7 @@ h3
   object-fit: contain;
 }
 .git
-{
+{padding-top: 6px;
   width: 13%;
   height: 40px;
   object-fit: contain;
@@ -84,15 +86,17 @@ h3
 {
   position: fixed;
   top: 23%;
-  right: 70%;
+  right: 60%;
   bottom: auto;
   margin: 30px;
 }
 .copyright
 {
-  color: black;
+  font-size: 20px;
+  color: white;
   text-align: right;
-  padding-right: 20px;
+  padding-right: 60%;
+  padding-bottom: 10%;
 }
 /*--------------------
 Chat
@@ -104,11 +108,11 @@ Chat
     transform: translate(-50%, -50%);*/
   width: 100%;
   height: calc(100% - 15px);
-  max-height: 500px;
+  max-height: 95%px;
   z-index: 10;
   overflow: hidden;
-  /*box-shadow: 0 5px 30px rgba(0, 0, 0, .2);*/
-  /* background: rgba(0, 0, 0, .5);*/
+  box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
+  background: rgba(0, 0, 0, .5);
   background: transparent;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -137,13 +141,13 @@ Chat Title
 .chat-title h1,
 .chat-title h2 {
   font-weight: normal;
-  font-size: 14px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
 }
 .chat-title h2 {
   /* color: rgba(255, 255, 255, .8);*/
-  font-size: 11px;
+  font-size: 15px;
   letter-spacing: 1px;
 }
 .chat-title .avatar {
@@ -169,8 +173,8 @@ Messages
 --------------------*/
 .messages {
   flex: 1 1 auto;
-  /*  color: rgba(255, 255, 255, .5);
-  color: #fff;*/
+  color: rgba(255, 255, 255, .5);
+  color: #fff;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -185,49 +189,50 @@ Messages
 .messages .message {
   clear: both;
   float: left;
-  padding: 6px 10px 7px;
+  padding: 10px 10px 7px;
   border-radius: 20px 20px 20px 0;
   background: #eee;
   /*rgba(0, 0, 0, 0.1);*/
-  margin: 8px 0;
-  font-size: 14px;
+  margin: 8px;
+  font-size: 16px;
   line-height: 1.4;
-  margin-left: 35px;
+  margin-left: 50px;
   position: relative;
   border: 1px solid #ccc;
-  /*text-shadow: 0 1px 1px rgba(0, 0, 0, .2);*/
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
 }
 .messages .message .timestamp {
   position: absolute;
-  bottom: -15px;
-  font-size: 10px;
+  bottom: -20px;
+  font-size: 15px;
   color: #555;
   right: 30px;
   /* color: rgba(255, 255, 255, .7);*/
 }
 .messages .message .checkmark-sent-delivered {
   position: absolute;
-  bottom: -15px;
-  right: 10px;
-  font-size: 12px;
+  bottom: -20px;
+  right: 20px;
+  left: 10px;
+  font-size: 18px;
   color: #999;
 }
 .messages .message .checkmark-read {
   color: blue;
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   right: 16px;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .messages .message .avatar {
   position: absolute;
   z-index: 1;
-  bottom: -15px;
-  left: -35px;
-  border-radius: 30px;
-  width: 30px;
-  height: 30px;
+  bottom: -18px;
+  left: -50px;
+  border-radius: 35px;
+  width: 50px;
+  height: 50px;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -238,10 +243,10 @@ Messages
   height: auto;
 }
 .messages .message.message-personal {
+  color: rgb(5, 85, 131);
   float: right;
   text-align: right;
-  /*      background: linear-gradient(120deg, #ddd, #eee);*/
-  background: #fff;
+  background: rgb(157, 216, 250);
   border: 1px solid #ccc;
   border-radius: 20px 20px 0 20px;
 }
@@ -250,6 +255,9 @@ Messages
   margin-bottom: 30px;
 }
 .messages .message.new {
+    -webkit-box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
+  box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
   -webkit-transform: scale(0);
           transform: scale(0);
   -webkit-transform-origin: 0 0;
@@ -259,15 +267,11 @@ Messages
 }
 .messages .message.loading::before {
   position: relative;
-  /*  top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);*/
   content: '';
   display: block;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  /*  background: rgba(255, 255, 255, .5);*/
   background: #888;
   z-index: 2;
   margin-top: 4px;
@@ -280,39 +284,31 @@ Messages
 .messages .message.loading span {
   display: block;
   font-size: 0;
-  width: 20px;
-  height: 10px;
+  width: 50px;
+  height: 30px;
   position: relative;
 }
 .messages .message.loading span::before {
   position: relative;
-  /*  top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);*/
   content: '';
   display: block;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  /*  background: rgba(255, 255, 255, .5);*/
   background: #888;
   z-index: 2;
   margin-top: 4px;
   -webkit-animation: ball 0.45s cubic-bezier(0, 0, 0.15, 1) alternate infinite;
           animation: ball 0.45s cubic-bezier(0, 0, 0.15, 1) alternate infinite;
-  margin-left: -7px;
+  margin-left: 7px;
 }
 .messages .message.loading span::after {
   position: relative;
-  /*  top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);*/
   content: '';
   display: block;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  /*  background: rgba(255, 255, 255, .5);*/
   background: #888;
   z-index: 2;
   margin-top: 4px;
@@ -330,10 +326,10 @@ Message Box
   flex: 0 1 42px;
   width: 90%;
   background: #fff;
-  margin: 2px auto;
-  /*-webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
-  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);*/
+  margin: 20px auto;
+  -webkit-box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
+  box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
   /*background: rgba(0, 0, 0, 0.3);
     border-top:1px solid #e3e3e3;*/
   padding: 10px;
@@ -348,11 +344,11 @@ Message Box
   outline: none !important;
   resize: none;
   /* color: rgba(255, 255, 255, .8);*/
-  font-size: 15px;
-  height: 24px;
+  font-size: 18px;
+  height: 32px;
   margin: 0;
   padding-right: 20px;
-  width: 265px;
+  width: 88%;
   color: #444;
 }
 .message-box textarea:focus:-webkit-placeholder {
@@ -361,13 +357,13 @@ Message Box
 .message-box .message-submit {
   position: absolute;
   z-index: 1;
-  top: 9px;
+  top: 12px;
   right: 10px;
   color: #4A90E2;
   border: none;
-  /* background: #c29d5f;*/
-  background: #fff;
-  font-size: 12px;
+  box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
+  background-color:: #fff;
+  font-size: 20px;
   text-transform: uppercase;
   line-height: 1;/*1*/
   padding: 6px 10px;
@@ -533,22 +529,18 @@ Bounce
   opacity: 1;
   border-radius: 20px;
   height: calc(100% - 60px) !important;
-  max-height: 550px !important;/*460*/
+  max-height: 900px !important;/*460*/
   min-height: 220px !important;
   width: 800px;/*320*/
-  /*  transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-  */
   background: rgba(255, 255, 255, 0.9);
   position: fixed;
-  top: 15%;
+  top: 2%;
   right: 7%;
   bottom: auto;
   margin: 30px;
   z-index: 10;
-  box-shadow: 2px 10px 40px rgba(22, 20, 19, 0.4);
-  /*  transform: translateX(300px);*/
+  box-shadow: 2px 10px 4px rgba(22, 20, 19, 0.4);
+
 }
 
 .avenue-messenger div.agent-face {
@@ -604,9 +596,9 @@ box-shadow: 0 1px 1px rgba(0,0,0,0.3);*/
   border-radius: 99em;
   border: 2px solid #fff;
   /*#4A90E2;*/
- /* -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+ -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-box-shadow: 0px 0px 10px rgba(0,0,0,.8);*/
+box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 }
 
 .contact-icon .circle:hover {
