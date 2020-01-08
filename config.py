@@ -1,9 +1,10 @@
 import json
 import secret
+import os
 
 SECRET_KEY = secret.SECRET_KEY
+MAPS_API_KEY = os.environ['API_PASSWORD']
 
-MAPS_API_KEY = secret.API_PASSWORD
 
 print(MAPS_API_KEY)
 with open("stop_words.json") as json_stop_words:
