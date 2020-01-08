@@ -1,8 +1,7 @@
 import json
-import secret
 import os
 
-SECRET_KEY = secret.SECRET_KEY
+
 MAPS_API_KEY = os.environ['API_PASSWORD']
 
 
