@@ -60,6 +60,6 @@ def grandPyWork(message, app):
             except TypeError:
                 return {"messages": [
                     "Ups je n'ai pas trouvé ce que tu me demandes,",
-                    "On vas devoir changer de conversation, tu veux?",
-                    "Alors qu'est-ce que tu veux savoir, petit filou?"
-                 ]}
+                    "On vas devoir changer de conversation, " +
+                    ".... Ha ces jeaunneaux...",
+                ]}

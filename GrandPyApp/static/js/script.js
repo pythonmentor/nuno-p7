@@ -57,28 +57,22 @@ function getMessageGrandPy(msg) {
     url : '/process',
     dataType: "json",
     success: function(data) {
+      initMap(data.position);
       data.messages.forEach(function(message) {
         grandPyMessage(message);
       });
-      grandPyMessage(initMap(data.position));
-      function initMap(position) {
-        map = document.createElement('div');
-        map.classList.add('map');
-        map = new google.maps.Map(map, {
-          center: position,
-          zoom: 15,
-        });
-        map.style = 'height: 20em';
-        marker = new google.maps.Marker({
-          position: position,
-          map: map,
-        });
-        /*return [map, marker];*/
-      }
-      /*let [map, marker] = initMap(position);*/
-      grandPyMessage(initMap(position));
       lastGrandPyMessage();
     },
+  });
+};
+function initMap(position) {
+  map = new google.maps.Map(document.getElementById("map"),{
+    center: position,
+    zoom: 2,
+  });
+  marker = new google.maps.Marker({
+    position: position,
+    map: map,
   });
 };
 
@@ -115,6 +109,5 @@ function lastGrandPyMessage() {
 
 $('.button').click(function(){
   $('.menu .items span').toggleClass('active');
-   $('.menu .button').toggleClass('active');
+  $('.menu .button').toggleClass('active');
 });
-
