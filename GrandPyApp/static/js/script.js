@@ -9,7 +9,6 @@ $(window).load(function() {
   }, 100);
 });
 
-
 function updateScrollbar() {
   $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
     scrollInertia: 10,
@@ -73,6 +72,7 @@ function getMessageGrandPy(msg) {
     },
   });
 };
+
 function initMap(position) {
   console.log(position);
   map = new google.maps.Map(document.getElementById("map"),{
@@ -95,7 +95,7 @@ $(window).on('keydown', function(e) {
     return false;
   };
 });
-last = "Voilà petit fou! Une autre Question a me soumetre ?"
+
 function firstGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
@@ -103,10 +103,11 @@ function firstGrandPyMessage() {
   msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
   " trouver des lieux mais je suis un peut rouillé"+
   " alors sois gentil avec moi,j'aime bien radotter sur"+
-  " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "+
+  " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "
 
   grandPyMessage(msg);
 };
+
 function lastGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
