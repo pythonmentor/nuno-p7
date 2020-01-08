@@ -13,3 +13,6 @@ Et pour finir « static » vas avoir les images le code css et aussi le code Jav
 Afin d’intervenir dynamiquement sur la page on utilisera AJAX. 
 
 Le programme se lance par le module "run.py". 
+
+
+
