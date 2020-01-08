@@ -1,5 +1,5 @@
-from GrandPyApp.process import grandPyWork
-from GrandPyApp.views import app
+from ..GrandPyApp.process import grandPyWork
+from ..GrandPyApp.views import app
 
 
 def test_grand_py_work():

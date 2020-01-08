@@ -1,12 +1,13 @@
-from zGrandPyApp.interface_requests import (
+from ..GrandPyApp.interface_requests import (
   call_google_maps_positionnement,
   call_wiki_found_page,
   call_wiki_main_page
   )
-from GrandPyApp.views import app
 import json
+from .config import MAPS_API_KEY
 
-key = app.config["MAPS_API_KEY"]
+
+key = MAPS_API_KEY
 
 
 def test_call_google_maps(monkeypatch):

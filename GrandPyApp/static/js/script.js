@@ -74,6 +74,7 @@ function getMessageGrandPy(msg) {
   });
 };
 function initMap(position) {
+  console.log(position);
   map = new google.maps.Map(document.getElementById("map"),{
     center: position,
     zoom: 18,
@@ -103,7 +104,6 @@ function firstGrandPyMessage() {
   " trouver des lieux mais je suis un peut rouillé"+
   " alors sois gentil avec moi,j'aime bien radotter sur"+
   " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "+
-  " Tu peut aussi demander une blague, j'en connais quelques unes!!"
 
   grandPyMessage(msg);
 };
