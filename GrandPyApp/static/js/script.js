@@ -74,7 +74,9 @@ function getMessageGrandPy(msg) {
       updateScrollbar();
       setTimeout(function() {
         $('.message.loading').remove();
+        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"><div id="map"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
         initMap(data.position);
+        document.getElementById('map').setAttribute('id','map1');
         setDate();
         updateScrollbar();
         lastGrandPyMessage();
@@ -84,9 +86,7 @@ function getMessageGrandPy(msg) {
 };
 
 function initMap(position) {
-  let nb_map = 0;
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"><div id="map' + String(nb_map) + '"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
-  map = new google.maps.Map(document.getElementById('map' + String(nb_map)),{
+  map = new google.maps.Map(document.getElementById('map'),{
     center: position,
     zoom: 18,
   });
@@ -94,8 +94,6 @@ function initMap(position) {
     position: position,
     map: map,
   });
-  nb_map++;
-  console.log(nb_map);
 };
 
 $('.message-submit').click(function() {
