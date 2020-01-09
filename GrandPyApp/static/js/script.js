@@ -80,7 +80,7 @@ function grandPyMapResponse(position) {
 };
 
 function initMap(position) {
-  map = new google.maps.Map(document.getElementsByClassName("mapShow"),{
+  map = new google.maps.Map(document.getElementsByClassName('mapShow'),{
     center: position,
     zoom: 19,
   });
