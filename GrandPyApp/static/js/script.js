@@ -85,7 +85,7 @@ function getMessageGrandPy(msg) {
 
 function initMap(position) {
   let nb_map = 0;
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap">' + "<div id='map" + String(nb_map) + "'></div>" + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"><div id="map' + String(nb_map) + '"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
   map = new google.maps.Map(document.getElementById('map' + String(nb_map)),{
     center: position,
     zoom: 18,
