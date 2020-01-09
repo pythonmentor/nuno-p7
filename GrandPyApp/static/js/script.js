@@ -74,11 +74,9 @@ function getMessageGrandPy(msg) {
       updateScrollbar();
       setTimeout(function() {
         $('.message.loading').remove();
-        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap">' + '<div id="map"></div>' + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
         initMap(data.position);
         setDate();
         updateScrollbar();
-        document.getElementById('map').setAttribute('id','map1');
         lastGrandPyMessage();
       }, 3000);
     },
@@ -86,7 +84,9 @@ function getMessageGrandPy(msg) {
 };
 
 function initMap(position) {
-  map = new google.maps.Map(document.getElementById("map"),{
+  nb_map++;
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap">' + "<div id='map" + String(nb_map) + "'></div>" + '</div></div>').appendTo($('.mCSB_container')).addClass('new');
+  map = new google.maps.Map(document.getElementById('map" + String(nb_map) + "'),{
     center: position,
     zoom: 18,
   });
