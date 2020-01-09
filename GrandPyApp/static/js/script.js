@@ -9,6 +9,7 @@ $(window).load(function() {
   }, 100);
 });
 
+
 function updateScrollbar() {
   $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
     scrollInertia: 10,
@@ -67,8 +68,8 @@ function getMessageGrandPy(msg) {
         initMap(data.position);
         setDate();
         updateScrollbar();
+        lastGrandPyMessage();
       }, 3000);
-      lastGrandPyMessage();
     },
   });
 };
