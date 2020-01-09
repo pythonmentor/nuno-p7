@@ -63,29 +63,22 @@ function getMessageGrandPy(msg) {
       $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
       updateScrollbar();
       setTimeout(function() {
-        let i = 0
-        s = i.toString();
-        console.log(s)
         $('.message.loading').remove();
-        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"><div id="'+ s +'"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
-        initMap(data.position, s);
+        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
+        initMap(data.position);
         setDate();
         updateScrollbar();
         lastGrandPyMessage();
-        i++
-        console.log(i)
       }, 3000);
     },
   });
 };
 
-function initMap(position, s) {
-  var map = map + s
-  map = new google.maps.Map(document.getElementById(s),{
+function initMap(position) {
+  map = new google.maps.Map(document.getElementById("map"),{
     center: position,
     zoom: 18,
   });
-  var marker = marker + s
   marker = new google.maps.Marker({
     position: position,
     map: map,
