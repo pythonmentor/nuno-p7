@@ -64,11 +64,11 @@ function getMessageGrandPy(msg) {
       setTimeout(function() {
         $('.message.loading').remove();
         $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
-        initMap(data.position);
         setDate();
+        initMap(data.position);
         updateScrollbar();
-        lastGrandPyMessage();
       }, 3000);
+      lastGrandPyMessage();
     },
   });
 };
