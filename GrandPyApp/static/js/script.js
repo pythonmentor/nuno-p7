@@ -72,14 +72,15 @@ function grandPyMapResponse(position) {
   updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + initMap(position) + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div class="map"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    initMap(position);
     setDate();
     updateScrollbar();
   }, 3000);
 };
 
 function initMap(position) {
-  map = new google.maps.Map(document.createElement("map"),{
+  map = new google.maps.Map(document.getElementsByClassName("map"),{
     center: position,
     zoom: 19,
   });
