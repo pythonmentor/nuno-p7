@@ -68,6 +68,7 @@ function getMessageGrandPy(msg) {
         initMap(data.position);
         setDate();
         updateScrollbar();
+        document.getElementById('map').setAttribute('id','map1');
         lastGrandPyMessage();
       }, 3000);
     },
