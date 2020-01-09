@@ -69,23 +69,23 @@ function getMessageGrandPy(msg) {
 
 function grandPyMapResponse(position) {
   i = 0
+  i = num.toString();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
-  mapid = ("map"+i);
-  IdMap = '<div id='+ mapid +'></div>'
+  mapId = ("map"+i);
+  IdMap = '<div id='+ mapId +'></div>'
   setTimeout(function() {
     $('.message.loading').remove();
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + IdMap + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    initMap(position, i);
+    initMap(position, mapId);
     setDate();
     updateScrollbar();
   }, 3000);
   i = (i+1)
 };
 
-function initMap(position, i) {
-  mapid = ("map"+i);
-  map = new google.maps.Map(document.getElementById(mapid),{
+function initMap(position, mapId) {
+  map = new google.maps.Map(document.getElementById(mapId),{
     center: position,
     zoom: 19,
   });
