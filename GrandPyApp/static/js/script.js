@@ -95,6 +95,7 @@ function initMap(position) {
     map: map,
   });
   nb_map++;
+  console.log(nb_map);
 };
 
 $('.message-submit').click(function() {
