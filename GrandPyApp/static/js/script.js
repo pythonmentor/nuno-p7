@@ -20,10 +20,12 @@ function updateScrollbar() {
 function grandPyMessage(message) {
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
-  $('.message.loading').remove();
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
-  setDate();
-  updateScrollbar();
+  setTimeout(function() {
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
+    updateScrollbar();
+  }, 3000);
 }
 
 function setDate(){
@@ -58,31 +60,29 @@ function getMessageGrandPy(msg) {
       data.messages.forEach(function(message) {
         grandPyMessage(message);
       });
-      grandPyMapResponse(data.position);
-      lastGrandPyMessage();
+      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+      updateScrollbar();
+      setTimeout(function() {
+        $('.message.loading').remove();
+        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
+        initMap(data.position);
+        setDate();
+        updateScrollbar();
+        lastGrandPyMessage();
+      }, 3000);
     },
   });
 };
 
-function grandPyMapResponse(position) {
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
-  $('.message.loading').remove();
-  initMap(position);
-};
-
 function initMap(position) {
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div class="mapShow"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
-  setDate();
-  map = new google.maps.Map(document.getElementsByClassName('mapShow'),{
+  map = new google.maps.Map(document.getElementById("map"),{
     center: position,
-    zoom: 19,
+    zoom: 18,
   });
   marker = new google.maps.Marker({
     position: position,
     map: map,
   });
-  updateScrollbar();
 };
 
 $('.message-submit').click(function() {
