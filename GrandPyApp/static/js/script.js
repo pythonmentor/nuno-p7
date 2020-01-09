@@ -61,12 +61,13 @@ function getMessageGrandPy(msg) {
         grandPyMessage(message);
       });
       i = 0
+      s = i.toString();
       $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
       updateScrollbar();
       setTimeout(function() {
         $('.message.loading').remove();
-        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"><div id='+ i +'></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
-        initMap(data.position, i);
+        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"><div id='+ s +'></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
+        initMap(data.position, s);
         setDate();
         updateScrollbar();
         lastGrandPyMessage();
@@ -76,8 +77,7 @@ function getMessageGrandPy(msg) {
   });
 };
 
-function initMap(position, i) {
-  s = i.toString();
+function initMap(position, s) {
   map = new google.maps.Map(document.getElementById(s),{
     center: position,
     zoom: 18,
