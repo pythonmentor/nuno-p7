@@ -85,7 +85,6 @@ function grandPyMapResponse(position) {
 };
 
 function initMap(position, mapId) {
-  map = mapId
   map = new google.maps.Map(document.getElementById(mapId),{
     center: position,
     zoom: 19,
