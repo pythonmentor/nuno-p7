@@ -81,7 +81,7 @@ function grandPyMapResponse(position) {
     setDate();
     updateScrollbar();
   }, 3000);
-  i = (i+1)
+  i++
 };
 
 function initMap(position, mapId) {
