@@ -33,7 +33,7 @@ h3
 }
 .map
 {
-  max-height: 400px;
+  max-height: 620px;
   min-height: 200px;
   max-width: 700px;
   min-width: 280px;
@@ -63,7 +63,8 @@ Footer
   object-fit: contain;
 }
 .git
-{padding-top: 6px;
+{
+  padding-top: 6px;
   width: 13%;
   height: 40px;
   object-fit: contain;
@@ -110,9 +111,6 @@ Chat
 --------------------*/
 .chat {
   position: relative;
-  /*  top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);*/
   width: 100%;
   height: calc(100% - 15px);
   max-height: 95%px;
@@ -153,7 +151,6 @@ Chat Title
   padding: 0;
 }
 .chat-title h2 {
-  /* color: rgba(255, 255, 255, .8);*/
   font-size: 15px;
   letter-spacing: 1px;
 }
@@ -199,7 +196,6 @@ Messages
   padding: 10px 10px 7px;
   border-radius: 20px 20px 20px 0;
   background: #eee;
-  /*rgba(0, 0, 0, 0.1);*/
   margin: 8px;
   font-size: 16px;
   line-height: 1.4;
@@ -214,7 +210,6 @@ Messages
   font-size: 15px;
   color: #555;
   right: 30px;
-  /* color: rgba(255, 255, 255, .7);*/
 }
 .messages .message .checkmark-sent-delivered {
   position: absolute;
@@ -337,8 +332,6 @@ Message Box
   -webkit-box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
   box-shadow: 0px 4px 2px 2px rgba(0,0,0,0.4);
-  /*background: rgba(0, 0, 0, 0.3);
-    border-top:1px solid #e3e3e3;*/
   padding: 10px;
   position: relative;
   border-radius: 20px;
@@ -350,7 +343,6 @@ Message Box
   border: none;
   outline: none !important;
   resize: none;
-  /* color: rgba(255, 255, 255, .8);*/
   font-size: 18px;
   height: 32px;
   margin: 0;
@@ -577,18 +569,9 @@ Bounce
   background-position: center center;
   border-radius: 99em;
   opacity: 0.5;
-  /*border: 1px solid #ccc;
-  color:#ccc;*/
-  /* -webkit-box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow:    0px -1px 2px 0px rgba(0, 0, 0, 0.5);
-  box-shadow:         0px -1px 2px 0px rgba(0, 0, 0, 0.5);*/
 }
 
 .close:hover {
-              /*
--webkit-box-shadow:  0 1px 1px rgba(0,0,0,0.3);
--moz-box-shadow:  0 1px 1px rgba(0,0,0,0.3);
-box-shadow: 0 1px 1px rgba(0,0,0,0.3);*/
   opacity: 0.9;
 }
 
@@ -602,8 +585,7 @@ box-shadow: 0 1px 1px rgba(0,0,0,0.3);*/
   background-position: center center;
   border-radius: 99em;
   border: 2px solid #fff;
-  /*#4A90E2;*/
- -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 }
@@ -675,7 +657,6 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   line-height: 25px;
   height: 40px;
   border-top-right-radius: 20px;
-  /*  border-top-left-radius:20px;*/
   position: absolute;
   right: 0;
   padding-right: 10px;
@@ -689,20 +670,8 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   background: #ccc;
 }
 
-/*
-.menu .button:hover .menu .items span {
-  display: block;
-  left: -2px;
-  opacity: 1;
-}*/
 .menu .items span.active {
   opacity: 1;
-  /*border-radius:10px;
-  height: 180px;
-  width: 400px;
-  transform:translateY(0);
-  -webkit-transform:translateY(0);
-  -moz-transform:translateY(0);*/
 }
 
 .menu .items a {
@@ -751,15 +720,14 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   }
 
   .map {
-    height: 200px;
-    min-height: 100px;
-    width: 260px;
-    min-width: 100px;
+    height: 400px;
+    min-height: 200px;
+    width: 620px;
+    min-width: 260px;
     border-radius: 5px 5px 5px 0;
   }
   .avenue-messenger div.agent-face {
     top: -10px !important;
-    /* left:initial !important;*/
   }
 
   .chat {
