@@ -80,7 +80,7 @@ function grandPyMapResponse(position) {
 
 function initMap(position) {
   setTimeout(function() {
-    map = new google.maps.Map(document.getElementsById("map"),{
+    map = new google.maps.Map(document.getElementById("map"),{
       center: position,
       zoom: 19,
     });
