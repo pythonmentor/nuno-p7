@@ -20,12 +20,10 @@ function updateScrollbar() {
 function grandPyMessage(message) {
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-  }, 3000);
+  $('.message.loading').remove();
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+  setDate();
+  updateScrollbar();
 }
 
 function setDate(){
@@ -59,7 +57,6 @@ function getMessageGrandPy(msg) {
     success: function(data) {
       data.messages.forEach(function(message) {
         grandPyMessage(message);
-        updateScrollbar();
       });
       grandPyMapResponse(data.position);
       lastGrandPyMessage();
@@ -70,16 +67,13 @@ function getMessageGrandPy(msg) {
 function grandPyMapResponse(position) {
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div class="mapShow"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    initMap(position);
-    setDate();
-    updateScrollbar();
-  }, 3000);
+  $('.message.loading').remove();
+  initMap(position);
 };
 
 function initMap(position) {
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div class="mapShow"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
+  setDate();
   map = new google.maps.Map(document.getElementsByClassName('mapShow'),{
     center: position,
     zoom: 19,
@@ -88,6 +82,7 @@ function initMap(position) {
     position: position,
     map: map,
   });
+  updateScrollbar();
 };
 
 $('.message-submit').click(function() {
