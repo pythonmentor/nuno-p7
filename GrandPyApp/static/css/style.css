@@ -751,9 +751,9 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   }
 
   #map {
-    max-height: 200px;
+    height: 200px;
     min-height: 100px;
-    max-width: 280px;
+    width: 260px;
     min-width: 100px;
     border-radius: 5px 5px 5px 0;
   }
