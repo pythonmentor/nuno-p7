@@ -60,7 +60,7 @@ function getMessageGrandPy(msg) {
       data.messages.forEach(function(message) {
         grandPyMessage(message);
       });
-      i = 0
+      let i = 0
       s = i.toString();
       $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
       updateScrollbar();
