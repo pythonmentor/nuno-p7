@@ -63,8 +63,8 @@ function getMessageGrandPy(msg) {
       updateScrollbar();
       setTimeout(function() {
         $('.message.loading').remove();
-        initMap(data.position);
         $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
+        initMap(data.position);
         setDate();
         updateScrollbar();
       }, 3000);
