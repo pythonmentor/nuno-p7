@@ -88,7 +88,7 @@ function initMap(position) {
       position: position,
       map: map,
     });
-}, 1000);
+}, 500);
 };
 
 $('.message-submit').click(function() {
