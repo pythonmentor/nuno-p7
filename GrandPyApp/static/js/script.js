@@ -69,7 +69,7 @@ function getMessageGrandPy(msg) {
 
 function grandPyMapResponse(position) {
   i = 0
-  i = num.toString();
+  i = i.toString();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
   mapId = ("map"+i);
