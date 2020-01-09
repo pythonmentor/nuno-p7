@@ -73,7 +73,7 @@ function grandPyMapResponse(position) {
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
   mapId = ("map"+i);
-  IdMap = '<div id='+ mapId +'></div>'
+  IdMap = '<div class="mapShow"><div id='+ mapId +'></div></div>'
   setTimeout(function() {
     $('.message.loading').remove();
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + IdMap + '</div>').appendTo($('.mCSB_container')).addClass('new');
