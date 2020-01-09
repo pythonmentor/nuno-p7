@@ -60,20 +60,21 @@ function getMessageGrandPy(msg) {
       data.messages.forEach(function(message) {
         grandPyMessage(message);
       });
-      let i = 0
-      s = i.toString();
-      console.log(s)
       $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
       updateScrollbar();
       setTimeout(function() {
+        let i = 0
+        s = i.toString();
+        console.log(s)
         $('.message.loading').remove();
         $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="map"><div id="'+ s +'"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');
         initMap(data.position, s);
         setDate();
         updateScrollbar();
         lastGrandPyMessage();
+        i++
+        console.log(i)
       }, 3000);
-      i++
     },
   });
 };
