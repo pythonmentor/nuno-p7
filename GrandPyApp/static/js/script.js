@@ -75,7 +75,6 @@ function getMessageGrandPy(msg) {
 };
 
 function initMap(position) {
-  console.log(position);
   map = new google.maps.Map(document.getElementById("map"),{
     center: position,
     zoom: 18,
@@ -96,7 +95,7 @@ $(window).on('keydown', function(e) {
     return false;
   };
 });
-
+last = "Voilà petit fou! Une autre Question a me soumetre ?"
 function firstGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
@@ -108,7 +107,6 @@ function firstGrandPyMessage() {
 
   grandPyMessage(msg);
 };
-
 function lastGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
