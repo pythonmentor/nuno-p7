@@ -31,7 +31,7 @@ h3
   right: 0;
   box-shadow: 2px 10px 40px rgba(7, 7, 7, 0.4);
 }
-.showMap
+#showMap
 {
   max-height: 620px;
   min-height: 200px;

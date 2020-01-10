@@ -88,12 +88,12 @@ function mapGrandPyMessage(position) {
   var i = a.toString();
   console.log(i);
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div class="showMap"><div id="map"></div></div>' + '</div>');
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="map"></div></div>' + '</div>');
   $('.message.loading').remove();
-  initMap(position, i);
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"><div id="map"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
   document.getElementById('map').setAttribute('id','map' + i);
-  setDate();
+  initMap(position, i);
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div id=' + "map"+i +'></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
+    setDate();
   updateScrollbar();
   a++;
 }
