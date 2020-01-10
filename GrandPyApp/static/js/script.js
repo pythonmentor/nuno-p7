@@ -51,14 +51,14 @@ function insertMessage() {
   getMessageGrandPy(msg);
 };
 
-function escapeHtml(msg) {
+/*function escapeHtml(msg) {
   return msg
   .replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;")
   .replace(/'/g, "&#039;");
-};
+};*/
 
 function getMessageGrandPy(msg) {
   $.ajax({
