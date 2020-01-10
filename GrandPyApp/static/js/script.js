@@ -43,7 +43,7 @@ function insertMessage() {
   if ($.trim(msg) == '') {
     return false;
   }
-  escapeHtml(msg);
+  /*escapeHtml(msg);*/
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
   $('.message-input').val(null);
