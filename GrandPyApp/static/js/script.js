@@ -43,7 +43,7 @@ function insertMessage() {
   if ($.trim(msg) == '') {
     return false;
   }
-  /*escapeHtml(msg);*/
+  escapeHtml(msg);
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
   $('.message-input').val(null);
@@ -51,14 +51,14 @@ function insertMessage() {
   getMessageGrandPy(msg);
 };
 
-/*function escapeHtml(msg) {
+function escapeHtml(msg) {
   return msg
   .replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;")
   .replace(/'/g, "&#039;");
-};*/
+};
 
 function getMessageGrandPy(msg) {
   $.ajax({
@@ -82,18 +82,24 @@ function getMessageGrandPy(msg) {
 };
 
 function mapGrandPyMessage(position) {
+  console.log(position);
+  let a = 1;
+  console.log(a);
+  var i = a.toString();
+  console.log(i);
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('.message.loading').remove();
   $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"><div id="map"></div></div></div>');
-  initMap(position);
+  $('.message.loading').remove();
+  initMap(position, i);
   $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"><div id="map"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
-  /*/document.getElementById('map').setAttribute('id','map1');*/
+  document.getElementById('map').setAttribute('id','map' + i);
   setDate();
   updateScrollbar();
+  a++;
 }
 
-function initMap(position) {
-  map = new google.maps.Map(document.getElementById('map'),{
+function initMap(position, i) {
+  map = new google.maps.Map(document.getElementById('map'+i),{
     center: position,
     zoom: 18,
   });
