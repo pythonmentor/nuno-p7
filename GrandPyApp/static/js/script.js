@@ -72,7 +72,7 @@ function getMessageGrandPy(msg) {
       });
       updateScrollbar();
       setTimeout(function() {
-        mapGrandPyMessage(map.position);
+        mapGrandPyMessage(data.position);
       }, 3000);
       setTimeout(function() {
         lastGrandPyMessage();
