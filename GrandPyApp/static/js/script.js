@@ -43,7 +43,7 @@ function insertMessage() {
   if ($.trim(msg) == '') {
     return false;
   }
-  escapeHtml(msg);
+  /*escapeHtml(msg);*/
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
   $('.message-input').val(null);
@@ -51,14 +51,14 @@ function insertMessage() {
   getMessageGrandPy(msg);
 };
 
-function escapeHtml(msg) {
+/*function escapeHtml(msg) {
   return msg
   .replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;")
   .replace(/'/g, "&#039;");
-};
+};*/
 
 function getMessageGrandPy(msg) {
   $.ajax({
