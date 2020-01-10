@@ -83,18 +83,19 @@ function getMessageGrandPy(msg) {
 
 function mapGrandPyMessage(position) {
   console.log(position);
-  let a = 1;
+  let a = 0;
   console.log(a);
   var i = a.toString();
   console.log(i);
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="map"></div></div>' + '</div>');
-  $('.message.loading').remove();
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="map"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
   document.getElementById('map').setAttribute('id','map' + i);
+  $('.message.loading').remove();
   initMap(position, i);
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div id=' + "map"+i +'></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
+  /*$('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div id=' + "map"+i +'></div></div></div>').appendTo($('.mCSB_container')).addClass('new');*/
     setDate();
   updateScrollbar();
+  let a = Number(i)
   a++;
 }
 
