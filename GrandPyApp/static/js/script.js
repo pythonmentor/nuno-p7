@@ -95,7 +95,7 @@ function mapGrandPyMessage(position) {
   /*$('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div id=' + "map"+i +'></div></div></div>').appendTo($('.mCSB_container')).addClass('new');*/
     setDate();
   updateScrollbar();
-  let a = Number(i)
+  a = Number(i)
   a++;
 }
 
