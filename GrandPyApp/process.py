@@ -1,8 +1,4 @@
-from .first_input_parser import (
-    parse_user_input,
-    important_words
-)
-
+from .first_input_parser import parse_user_input, important_words
 from .interface_requests import (
     call_google_maps_positionnement,
     call_wiki_main_page,
@@ -41,16 +37,16 @@ def grandPyWork(message, app):
                     msg_to_api_requests
                 )
             wiki_title = call_wiki_main_page(msg_to_api_requests)
-            history = call_wiki_found_page(wiki_title)
+            history = call_wiki_found_page(wiki_title[1])
             all_guest_imputs = []
-            if wiki_title[0] not in all_guest_imputs:
-                all_guest_imputs.append(wiki_title[0])
+            if wiki_title not in all_guest_imputs:
+                all_guest_imputs.append(wiki_title[wiki_title])
                 message = {
                     "messages": [
                                 "Et donc tu veux savoir tout sur " +
                                 wiki_title[0],
                                 "Coquinou, quand même!" +
-                                "Et bein oui c'est a :" + msg_gmaps[2],
+                                "Et bein oui c'est a : " + msg_gmaps[2],
                                 "En plus ce-ci est cadeau, gratos," +
                                 " rien que pour toi",
                                 "A propos de ta demande et pour la petitte" +
@@ -60,22 +56,20 @@ def grandPyWork(message, app):
                                 " une image vaux mieux que 1000 mots!!!"
                                 ],
                     "position": msg_gmaps[1],
-                    "tag": wiki_title[0]
+                    "tag": wiki_title
                     }
                 return message
             else:
-                message = {
-                    "messages": [
-                        "Toi t'est un vrai coquinou",
-                        "Tu m'as dejà posé la question" +
-                        "regarde plus haut dans la conversation",
-                        "Je sais que tu a bien d'autres choses" +
-                        " a me demander!" +
-                        "Alors courage, tu veux savoir quoi de plus? Dis-moi!!"
-                    ]}
+                return {"messages": [
+                    "T's pas hont de faire une blague a PAPY?",
+                    "On vas devoir changer de conversation, " +
+                    "Regarde plus haut, tu a déjà la réponse!!!",
+                    "Ho LA LA! Et donc tu veux trouver quel endroit?"
+                ]}
         except TypeError:
             return {"messages": [
                 "Ups je n'ai pas trouvé ce que tu me demandes,",
                 "On vas devoir changer de conversation, " +
                 ".... Ha ces jeaunneaux...",
+                "Que veux-tu savoi?"
             ]}
