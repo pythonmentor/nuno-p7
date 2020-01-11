@@ -72,7 +72,7 @@ function getMessageGrandPy(msg) {
       });
       updateScrollbar();
       setTimeout(function() {
-        mapGrandPyMessage(data.position);
+        mapGrandPyMessage(data.position, data.tag);
       }, 3000);
       setTimeout(function() {
         lastGrandPyMessage();
@@ -81,22 +81,17 @@ function getMessageGrandPy(msg) {
   });
 };
 
-function mapGrandPyMessage(position) {
-
+function mapGrandPyMessage(position, tag) {
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="map"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
-  var cnt = 0;
-  for(i=1;i<=cnt;i++){
-  var id_count = document.getElementById('map'+i)};
-  console.log(id_count);
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="'+tag+'"><div id="map"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
   $('.message.loading').remove();
-  initMap(position, id_count);
+  initMap(position, tag);
   setDate();
   updateScrollbar();
 };
 
-function initMap(position, i) {
-  map = new google.maps.Map(document.getElementById(i),{
+function initMap(position, tag) {
+  map = new google.maps.Map(document.getElementById(tag),{
     center: position,
     zoom: 18,
   });

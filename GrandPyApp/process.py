@@ -38,21 +38,37 @@ def grandPyWork(message, app):
                 )
             wiki_title = call_wiki_main_page(msg_to_api_requests)
             history = call_wiki_found_page(wiki_title[1])
-
-            message = {"messages": [
-                            "Et donc tu veux savoir tout sur " +
-                            wiki_title[0],
-                            "Coquinou, quand même!" +
-                            "Et bein oui c'est au " + msg_gmaps[2],
-                            "En plus ce-ci est cadeau, gratos," +
-                            " rien que pour toi",
-                            "A propos de ta demande et pour la petitte" +
-                            " histoire :" + history,
-                            "Pas bête la bête!",
-                            "Allez autre chose... Je te montre," +
-                            " une image vaux mieux que 1000 mots!!!"
-                            ], "position": msg_gmaps[1]}
-            return message
+            all_guest_imputs = []
+            if wiki_title[1 not in all_guest_imputs:]
+                all_guest_imputs.append(wiki_title[1])
+                message = {
+                    "messages": [
+                                "Et donc tu veux savoir tout sur " +
+                                wiki_title[0],
+                                "Coquinou, quand même!" +
+                                "Et bein oui c'est au " + msg_gmaps[2],
+                                "En plus ce-ci est cadeau, gratos," +
+                                " rien que pour toi",
+                                "A propos de ta demande et pour la petitte" +
+                                " histoire :" + history,
+                                "Pas bête la bête!",
+                                "Allez autre chose... Je te montre," +
+                                " une image vaux mieux que 1000 mots!!!"
+                                ],
+                    "position": msg_gmaps[1],
+                    "tag": wiki_title[0]
+                    }
+                return message
+            else:
+                message = {
+                    "messages": [
+                        "Toi t'est un vrai coquinou",
+                        "Tu m'as dejà posé la question" +
+                        "regarde plus haut dans la conversation",
+                        "Je sais que tu a bien d'autres choses a me demander!"+
+                        "Alors courage, tu veux savoir quoi de plus? Dis-moi!!"
+                    ]
+                }
         except TypeError:
             return {"messages": [
                 "Ups je n'ai pas trouvé ce que tu me demandes,",
