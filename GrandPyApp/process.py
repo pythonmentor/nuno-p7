@@ -41,10 +41,10 @@ def grandPyWork(message, app):
                     msg_to_api_requests
                 )
             wiki_title = call_wiki_main_page(msg_to_api_requests)
-            history = call_wiki_found_page(wiki_title[1])
+            history = call_wiki_found_page(wiki_title)
             all_guest_imputs = []
-            if wiki_title[1] not in all_guest_imputs:
-                all_guest_imputs.append(wiki_title[1])
+            if wiki_title[0] not in all_guest_imputs:
+                all_guest_imputs.append(wiki_title[0])
                 message = {
                     "messages": [
                                 "Et donc tu veux savoir tout sur " +

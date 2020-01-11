@@ -83,7 +83,7 @@ function getMessageGrandPy(msg) {
 
 function mapGrandPyMessage(position, tag) {
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="'+tag+'"><div id="map"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="'+tag+'"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
   $('.message.loading').remove();
   initMap(position, tag);
   setDate();
