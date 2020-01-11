@@ -50,7 +50,7 @@ def grandPyWork(message, app):
                                 "Et donc tu veux savoir tout sur " +
                                 wiki_title[0],
                                 "Coquinou, quand même!" +
-                                "Et bein oui c'est au " + msg_gmaps[2],
+                                "Et bein oui c'est a :" + msg_gmaps[2],
                                 "En plus ce-ci est cadeau, gratos," +
                                 " rien que pour toi",
                                 "A propos de ta demande et pour la petitte" +
