@@ -87,7 +87,8 @@ function mapGrandPyMessage(position) {
   $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="map"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
   var cnt = 0;
   for(i=1;i<=cnt;i++){
-  let id_count = document.getElementById('map'+i).value()};
+  var id_count = document.getElementById('map'+i)};
+  console.log(id_count);
   $('.message.loading').remove();
   initMap(position, id_count);
   setDate();
