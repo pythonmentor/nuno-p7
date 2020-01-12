@@ -81,17 +81,17 @@ function getMessageGrandPy(msg) {
   });
 };
 
-function mapGrandPyMessage(position, tag) {
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + '<div id="showMap"><div id="'+tag+'"></div></div>' + '</div>').appendTo($('.mCSB_container')).addClass('new');;
+function mapGrandPyMessage(position) {
   $('.message.loading').remove();
-  initMap(position, tag);
+  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+  initMap(position);
   setDate();
   updateScrollbar();
 };
 
-function initMap(position, tag) {
-  map = new google.maps.Map(document.getElementById(tag),{
+function initMap(position) {
+  map = new google.maps.Map(document.getElementById("showMap"),{
     center: position,
     zoom: 18,
   });

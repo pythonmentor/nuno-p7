@@ -33,10 +33,7 @@ h3
 }
 #showMap
 {
-  max-height: 620px;
-  min-height: 200px;
-  max-width: 700px;
-  min-width: 280px;
+  height: 100%;
   border-radius: 20px 20px 20px 0;
 }
 /*--------------------
