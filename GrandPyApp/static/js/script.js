@@ -95,7 +95,8 @@ function mapGrandPyMessage(position) {
   setDate();
   updateScrollbar();
 };
-
+var map;
+var position;
 function initMap(position) {
   map = new google.maps.Map(document.getElementsByClassName('Map')[0],{
     center: position,
