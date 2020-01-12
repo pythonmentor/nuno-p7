@@ -93,7 +93,7 @@ function mapGrandPyMessage(position, id) {
 };
 let map= Array();
 var marker= Array();
-function initMap(position, map_id, marker_id) {
+function initMap(position, map_id, marker_id, n) {
   if( !map[map_id]){
     map[map_id] = new google.maps.Map(document.getElementsByClassName('Map'+n)[0],{
       center: position,
