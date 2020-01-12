@@ -84,6 +84,7 @@ function getMessageGrandPy(msg) {
 };
 function mapGrandPyMessage(position, id) {
   var n = id.toString();
+  console.log(n);
   $('.message.loading').remove();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div class="Map'+n+'"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
@@ -92,6 +93,7 @@ function mapGrandPyMessage(position, id) {
   updateScrollbar();
 };
 let map= Array();
+console.log(map);
 var marker= Array();
 function initMap(position, map_id, marker_id, n) {
   if( !map[map_id]){

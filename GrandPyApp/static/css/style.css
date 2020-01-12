@@ -718,8 +718,11 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   }
 
   #showMap {
-    height: 400px;
-    width: 620px;
+      height: 300px;
+      width: 260px;
+      border-radius: 5px 5px 5px 0;
+  }
+  .av{
     border-radius: 5px 5px 5px 0;
   }
   .avenue-messenger div.agent-face {
