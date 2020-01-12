@@ -86,7 +86,12 @@ function mapGrandPyMessage(position) {
   $('.message.loading').remove();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div class="Map"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
-  initMap(position);
+  setInterval(function() {
+    if (!position)
+      position = new google.maps.LatLng(-34.397, 150.644);
+    initMap(position);
+    position = google.maps.geometry.spherical.computeOffset(position, 100, 45);
+  }, 5000);
   setDate();
   updateScrollbar();
 };
@@ -100,6 +105,7 @@ function initMap(position) {
     position: position,
     map: map,
   });
+  position = map.getCenter();
 };
 
 $('.message-submit').click(function() {
