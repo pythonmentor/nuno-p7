@@ -92,7 +92,7 @@ function mapGrandPyMessage(position) {
 };
 
 function initMap(position) {
-  map = new google.maps.Map(document.getElementsByClassName('mapShow')[0],{
+  map = new google.maps.Map(document.getElementsByClassName('ShowMap')[0],{
     center: position,
     zoom: 18,
   });
