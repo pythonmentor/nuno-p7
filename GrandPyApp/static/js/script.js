@@ -18,10 +18,9 @@ function updateScrollbar() {
 }
 
 function grandPyMessage(message) {
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
+    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
@@ -68,11 +67,12 @@ function getMessageGrandPy(msg) {
     dataType: "json",
     success: function(data) {
       data.messages.forEach(function(message) {
-        grandPyMessage(message);
+        setTimeout(function() {
+          grandPyMessage(message);
+      }, 3000);
       });
-      updateScrollbar();
       setTimeout(function() {
-        mapGrandPyMessage(data.position, data.tag);
+        mapGrandPyMessage(data.position);
       }, 3000);
       setTimeout(function() {
         lastGrandPyMessage();
