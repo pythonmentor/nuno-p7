@@ -50,6 +50,7 @@ def grandPyWork(message, app):
                             " une image vaux mieux que 1000 mots!!!"
                             ],
                 "position": msg_gmaps[1],
+                "tag": wiki_title[0]
                 }
             return message
         except TypeError:

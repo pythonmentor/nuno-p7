@@ -72,9 +72,7 @@ function getMessageGrandPy(msg) {
       });
       updateScrollbar();
       setTimeout(function() {
-        let i = 0
-        mapGrandPyMessage(data.position, i);
-        i++;
+        mapGrandPyMessage(data.position);
       }, 3000);
       setTimeout(function() {
         lastGrandPyMessage();
@@ -82,32 +80,23 @@ function getMessageGrandPy(msg) {
     },
   });
 };
-function mapGrandPyMessage(position, id) {
-  var n = id.toString();
-  console.log(n);
+function mapGrandPyMessage(position) {
   $('.message.loading').remove();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"><div class="Map'+n+'"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
-  initMap(position, id, id, n);
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure></div>').appendTo($('.mCSB_container')).addClass('new');
+  initMap(position);
   setDate();
   updateScrollbar();
 };
-let map= Array();
-console.log(map);
-var marker= Array();
-function initMap(position, map_id, marker_id, n) {
-  if( !map[map_id]){
-    map[map_id] = new google.maps.Map(document.getElementsByClassName('Map'+n)[0],{
-      center: position,
-      zoom: 18,
-    });
-  };
-    if( !marker[marker_id]){
-      marker[marker_id] = new google.maps.Marker({
-        position: position,
-        map: map[map_id],
-    });
-  };
+function initMap(position) {
+  map = new google.maps.Map(document.getElementsByClassName('message new')[0],{
+    center: position,
+    zoom: 18,
+  });
+    marker = new google.maps.Marker({
+      position: position,
+      map: map[map_id],
+  });
 };
 
 
