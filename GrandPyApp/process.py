@@ -70,6 +70,5 @@ def grandPyWork(message, app):
             return {"messages": [
                 "Ups je n'ai pas trouvé ce que tu me demandes,",
                 "On vas devoir changer de conversation, " +
-                ".... Ha ces jeaunneaux...",
-                "Que veux-tu savoi?"
+                ".... Ha ces jeaunneaux..."
             ]}
