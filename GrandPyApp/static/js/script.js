@@ -81,15 +81,20 @@ function getMessageGrandPy(msg) {
   });
 };
 function mapGrandPyMessage(position) {
-  $('.message.loading').remove();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure></div>').appendTo($('.mCSB_container')).addClass('new');
-  initMap(position);
-  setDate();
   updateScrollbar();
+  setTimeout(function() {
+    $('.message.loading').remove();
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+    initMap(position);
+    setDate();
+    updateScrollbar();
+  }, 3000);
+
+
 };
 function initMap(position) {
-  map = new google.maps.Map(document.getElementsByClassName('message new')[0],{
+  map = new google.maps.Map(document.getElementsByClassName('showMap')[0],{
     center: position,
     zoom: 18,
   });
