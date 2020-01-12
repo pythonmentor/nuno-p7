@@ -32,15 +32,14 @@ def grandPyWork(message, app):
         ]}
     else:
         try:
-            """msg_gmaps = call_google_maps_positionnement(
-                    g_maps_key,
-                    msg_to_api_requests
-                )"""
-            """wiki_title = call_wiki_main_page(msg_to_api_requests)"""
             history = call_wiki_found_page(wiki_title[1])
+            print(wiki_title[1])
+            print(history)
+            print(msg_gmaps[1])
             all_guest_imputs = []
+            print(all_guest_imputs)
             if wiki_title not in all_guest_imputs:
-                all_guest_imputs.append(wiki_title[wiki_title])
+                all_guest_imputs.append(wiki_title[1])
                 message = {
                     "messages": [
                                 "Et donc tu veux savoir tout sur " +
