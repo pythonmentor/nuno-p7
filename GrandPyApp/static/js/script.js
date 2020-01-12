@@ -85,7 +85,7 @@ function mapGrandPyMessage(position, tag) {
   updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="Map"><div class="showMap"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="Map"><div class="showMap'+tag+'"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
     initMap(position, tag);
     setDate();
     updateScrollbar();
