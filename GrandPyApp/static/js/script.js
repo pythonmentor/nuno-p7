@@ -91,15 +91,15 @@ function mapGrandPyMessage(position, tag) {
     updateScrollbar();
   }, 3000);
 };
-
+var marker;
 function initMap(position, tag) {
-  map = new google.maps.Map(document.getElementById('showMap_'+ tag),{
+  tag = new google.maps.Map(document.getElementById('showMap_'+ tag ),{
     center: position,
     zoom: 18,
   });
     marker = new google.maps.Marker({
       position: position,
-      map: map,
+      map: tag,
   });
 };
 
