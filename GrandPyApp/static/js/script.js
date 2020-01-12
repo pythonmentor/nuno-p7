@@ -85,14 +85,14 @@ function getMessageGrandPy(msg) {
 function mapGrandPyMessage(position) {
   $('.message.loading').remove();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap'+ position +'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="Map"><div class="Map'+ position +'"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
   initMap(position);
   setDate();
   updateScrollbar();
 };
 
 function initMap(position) {
-  map = new google.maps.Map(document.getElementsByClassName('showMap'+position)[0],{
+  map = new google.maps.Map(document.getElementsByClassName('Map'+position)[0],{
     center: position,
     zoom: 18,
   });
