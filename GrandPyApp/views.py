@@ -20,6 +20,7 @@ def home():
 def process():
     if request.method == 'POST':
         input_value = request.form['messageInput']
+        print(input_value)
         result = grandPyWork(input_value, app)
         return jsonify(result)
 
