@@ -99,6 +99,7 @@ function initMap(position, map_id, marker_id) {
       center: position,
       zoom: 18,
     });
+  };
     if( !marker[marker_id]){
       marker[marker_id] = new google.maps.Marker({
         position: position,
