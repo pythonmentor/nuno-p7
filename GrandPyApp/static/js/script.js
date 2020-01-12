@@ -18,9 +18,10 @@ function updateScrollbar() {
 }
 
 function grandPyMessage(message) {
+  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+  updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
@@ -67,10 +68,9 @@ function getMessageGrandPy(msg) {
     dataType: "json",
     success: function(data) {
       data.messages.forEach(function(message) {
-        setTimeout(function() {
-          grandPyMessage(message);
-      }, 3000);
+        grandPyMessage(message);
       });
+      updateScrollbar();
       setTimeout(function() {
         mapGrandPyMessage(data.position);
       }, 3000);
@@ -81,17 +81,18 @@ function getMessageGrandPy(msg) {
   });
 };
 
+
 function mapGrandPyMessage(position) {
   $('.message.loading').remove();
   $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap"></div></div>').appendTo($('.mCSB_container')).addClass('new');
   initMap(position);
   setDate();
   updateScrollbar();
 };
 
 function initMap(position) {
-  map = new google.maps.Map(document.getElementById("showMap"),{
+  map = new google.maps.Map(document.getElementsByClassName('mapShow')[0],{
     center: position,
     zoom: 18,
   });
