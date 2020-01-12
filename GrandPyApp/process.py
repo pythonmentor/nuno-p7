@@ -32,11 +32,11 @@ def grandPyWork(message, app):
         ]}
     else:
         try:
-            msg_gmaps = call_google_maps_positionnement(
+            """msg_gmaps = call_google_maps_positionnement(
                     g_maps_key,
                     msg_to_api_requests
-                )
-            wiki_title = call_wiki_main_page(msg_to_api_requests)
+                )"""
+            """wiki_title = call_wiki_main_page(msg_to_api_requests)"""
             history = call_wiki_found_page(wiki_title[1])
             all_guest_imputs = []
             if wiki_title not in all_guest_imputs:
@@ -44,7 +44,7 @@ def grandPyWork(message, app):
                 message = {
                     "messages": [
                                 "Et donc tu veux savoir tout sur " +
-                                wiki_title[0],
+                                wiki_title[1],
                                 "Coquinou, quand même!" +
                                 "Et bein oui c'est a : " + msg_gmaps[2],
                                 "En plus ce-ci est cadeau, gratos," +
@@ -56,12 +56,12 @@ def grandPyWork(message, app):
                                 " une image vaux mieux que 1000 mots!!!"
                                 ],
                     "position": msg_gmaps[1],
-                    "tag": wiki_title
+                    "tag": wiki_title[1]
                     }
                 return message
             else:
                 return {"messages": [
-                    "T's pas hont de faire une blague a PAPY?",
+                    "T'as pas hont de faire une blague a PAPY?",
                     "On vas devoir changer de conversation, " +
                     "Regarde plus haut, tu a déjà la réponse!!!",
                     "Ho LA LA! Et donc tu veux trouver quel endroit?"
