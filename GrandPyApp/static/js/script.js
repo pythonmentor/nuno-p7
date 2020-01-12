@@ -85,17 +85,15 @@ function mapGrandPyMessage(position, tag) {
   updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="Map"><div class="showMap'+tag+'"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
-    console.log(tag);
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="Map"><div id="showMap_'+tag+'"></div></div></div>').appendTo($('.mCSB_container')).addClass('new');
     initMap(position, tag);
     setDate();
     updateScrollbar();
   }, 3000);
-
-
 };
+
 function initMap(position, tag) {
-  map = new google.maps.Map(document.getElementsByClassName('showMap'+ tag)[0],{
+  map = new google.maps.Map(document.getElementById('showMap_'+ tag),{
     center: position,
     zoom: 18,
   });
