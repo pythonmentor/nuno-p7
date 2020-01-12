@@ -35,39 +35,26 @@ def grandPyWork(message, app):
         ]}
     else:
         try:
-            print(wiki_title[0])
-            print(msg_gmaps[1])
-            all_guest_imputs = list
-            if wiki_title[0] not in all_guest_imputs:
-                all_guest_imputs.append(wiki_title[0])
-                print(all_guest_imputs)
-                message = {
-                    "messages": [
-                                "Et donc tu veux savoir tout sur " +
-                                wiki_title[0],
-                                "Coquinou, quand même!" +
-                                "Et bein oui c'est a : " + msg_gmaps[2],
-                                "En plus ce-ci est cadeau, gratos," +
-                                " rien que pour toi",
-                                "A propos de ta demande et pour la petitte" +
-                                " histoire :" + history,
-                                "Pas bête la bête!",
-                                "Allez autre chose... Je te montre," +
-                                " une image vaux mieux que 1000 mots!!!"
-                                ],
-                    "position": msg_gmaps[1],
-                    "tag": wiki_title[1]
-                    }
-                return message
-            else:
-                return {"messages": [
-                    "T'as pas hont de faire une blague a PAPY?",
-                    "On vas devoir changer de conversation, " +
-                    "Regarde plus haut, tu a déjà la réponse!!!",
-                    "Ho LA LA! Et donc tu veux trouver quel endroit?"
-                ]}
+            message = {
+                "messages": [
+                            "Et donc tu veux savoir tout sur " +
+                            wiki_title[0],
+                            "Coquinou, quand même!" +
+                            "Et bein oui c'est a : " + msg_gmaps[2],
+                            "En plus ce-ci est cadeau, gratos," +
+                            " rien que pour toi",
+                            "A propos de ta demande et pour la petitte" +
+                            " histoire :" + history,
+                            "Pas bête la bête!",
+                            "Allez autre chose... Je te montre," +
+                            " une image vaux mieux que 1000 mots!!!"
+                            ],
+                "position": msg_gmaps[1],
+                }
+            return message
         except TypeError:
             return {"messages": [
+                "T'as pas hont de faire une blague a PAPY?",
                 "Ups je n'ai pas trouvé ce que tu me demandes,",
                 "On vas devoir changer de conversation, " +
                 ".... Ha ces jeaunneaux..."
