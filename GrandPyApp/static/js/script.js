@@ -95,7 +95,7 @@ function initMap(position) {
   });
     marker = new google.maps.Marker({
       position: position,
-      map: map[map_id],
+      map: map,
   });
 };
 
