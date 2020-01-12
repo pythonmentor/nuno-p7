@@ -35,12 +35,12 @@ def grandPyWork(message, app):
         ]}
     else:
         try:
-            print(wiki_title[1])
+            print(wiki_title[0])
             print(msg_gmaps[1])
-            all_guest_imputs = []
-            print(all_guest_imputs)
+            all_guest_imputs = list
             if wiki_title[0] not in all_guest_imputs:
                 all_guest_imputs.append(wiki_title[0])
+                print(all_guest_imputs)
                 message = {
                     "messages": [
                                 "Et donc tu veux savoir tout sur " +

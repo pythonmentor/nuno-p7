@@ -13,7 +13,6 @@ def call_google_maps_positionnement(key, tittle):
         place_id = search_json["results"][0]["place_id"]
         location = search_json["results"][0]["geometry"]["location"]
         adress = search_json["results"][0]["formatted_address"]
-        print(place_id)
         return place_id, location, adress
 
     except IndexError:
