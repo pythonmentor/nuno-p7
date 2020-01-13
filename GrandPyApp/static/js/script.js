@@ -68,14 +68,14 @@ function getMessageGrandPy(msg) {
     dataType: "json",
     success: function(data) {
       setTimeout(function() {
-        mapGrandPyMessage(data.messages, data.position, data.tag);
+        mapGrandPyMessages(data.messages, data.position, data.tag);
       }, 3000);
     },
   });
 };
 
 var id_tags = Array();
-function mapGrandPyMessage(messages, position, tag) {
+function mapGrandPyMessages(messages, position, tag) {
   if(id_tags.includes(tag)){
     var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
     grandPyMessage(message_ups);
@@ -91,8 +91,14 @@ function mapGrandPyMessage(messages, position, tag) {
       $('.message.loading').remove();
       $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
       var elmt = document.getElementById('showMap_'+tag);
-      elmt.style.height= "300px";
-      elmt.style.width= "700px";
+      var mq = window.matchMedia("screen and (min-width: 1024px");
+      if (mq.matches) {
+        elmt.style.height= "300px";
+        elmt.style.width= "700px";
+      } else {
+        elmt.style.height= "200px";
+        elmt.style.width= "260px";
+      }
       initMap(position, tag);
       setDate();
       updateScrollbar();
@@ -102,6 +108,7 @@ function mapGrandPyMessage(messages, position, tag) {
     }, 3000);
   };
 };
+
 var tag;
 var marker;
 function initMap(position, tag) {
