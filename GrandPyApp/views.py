@@ -4,8 +4,7 @@ from .process import grandPyWork
 
 app = Flask(__name__)
 app.config.from_object('config')
-g_maps_key = app.config["API_PASS_FRONT"]
-
+g_maps_key = app.config['API_PASS_FRONT']
 
 
 @app.route('/')
