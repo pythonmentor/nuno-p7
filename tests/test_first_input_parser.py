@@ -1,5 +1,9 @@
-from ..GrandPyApp.first_input_parser import parse_user_input, important_words
-from ..GrandPyApp.views import stop_words_custom, words_to_remove
+from GrandPyApp.first_input_parser import parse_user_input, important_words
+from .config import STOP_WORDS, WORDS_TO_REMOVE
+
+
+stop_words_custom = STOP_WORDS
+words_to_remove = WORDS_TO_REMOVE
 
 
 def test_parse_user_input():
