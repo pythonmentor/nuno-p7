@@ -83,7 +83,7 @@ function getMessageGrandPy(msg) {
 function mapGrandPyMessage(position, tag) {
   const id_tags = Array();
   console.log(id_tags)
-  if(id_tags.indexOf(tag) !== -1){
+  if(id_tags.indexOf(tag) != -1){
     message = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
     grandPyMessage(message);
   } else{
@@ -102,6 +102,7 @@ function mapGrandPyMessage(position, tag) {
     }, 3000);
   };
 };
+var tag;
 var marker;
 function initMap(position, tag) {
   tag = new google.maps.Map(document.getElementById('showMap_'+ tag ),{
