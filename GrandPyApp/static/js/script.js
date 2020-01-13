@@ -96,7 +96,7 @@ function mapGrandPyMessage(position, tag) {
 };
 var marker;
 function initMap(position, tag) {
-  map = new google.maps.Map(document.getElementById('showMap_'+ tag ),{
+  tag = new google.maps.Map(document.getElementById('showMap_'+ tag ),{
     center: position,
     zoom: 18,
   });
