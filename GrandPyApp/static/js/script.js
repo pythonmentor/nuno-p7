@@ -90,6 +90,7 @@ function mapGrandPyMessage(position, tag) {
     elmt.style.height= "300px";
     elmt.style.width= "700px";
     initMap(position, tag);
+    console.log(initMap);
     setDate();
     updateScrollbar();
   }, 3000);
