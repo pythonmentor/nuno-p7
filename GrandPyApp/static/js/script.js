@@ -108,7 +108,7 @@ function initMap(position, tag) {
     center: position,
     zoom: 18,
   });
-  console.log(tag.val())
+  console.log(tag);
     marker = new google.maps.Marker({
       position: position,
       map: tag,
