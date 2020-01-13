@@ -23,6 +23,7 @@ def process():
         all_inputs_session = []
         if input_value not in all_inputs_session:
             all_inputs_session.append(input_value)
+            print(all_inputs_session)
             result = grandPyWork(input_value, app)
             return jsonify(result)
         else:
