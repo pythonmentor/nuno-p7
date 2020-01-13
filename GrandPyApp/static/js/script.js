@@ -89,7 +89,6 @@ function mapGrandPyMessage(position, tag) {
     var elmt = document.getElementById('showMap_'+tag);
     elmt.style.height= "300px";
     elmt.style.width= "260px";
-    elmt.style.border-radius= "5px 5px 5px 0";
     initMap(position, tag);
     setDate();
     updateScrollbar();
