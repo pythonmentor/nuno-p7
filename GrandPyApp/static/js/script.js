@@ -71,6 +71,7 @@ function getMessageGrandPy(msg) {
         grandPyMessage(message);
       });
       updateScrollbar();
+      console.log(data.position)
       setTimeout(function() {
         mapGrandPyMessage(data.position, data.tag);
       }, 3000);
