@@ -81,19 +81,26 @@ function getMessageGrandPy(msg) {
   });
 };
 function mapGrandPyMessage(position, tag) {
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
-    var elmt = document.getElementById('showMap_'+tag);
-    elmt.style.height= "300px";
-    elmt.style.width= "700px";
-    initMap(position, tag);
-    console.log(initMap);
-    setDate();
+  const id_tags = Array();
+  if(id_tags.indexOf(tag) !== -1){
+    message = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
+    grandPyMessage(message);
+  } else{
+    id_tags.push(tag);
+    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
-  }, 3000);
+    setTimeout(function() {
+      $('.message.loading').remove();
+      $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+      var elmt = document.getElementById('showMap_'+tag);
+      elmt.style.height= "300px";
+      elmt.style.width= "700px";
+      initMap(position, tag);
+      console.log(initMap);
+      setDate();
+      updateScrollbar();
+    }, 3000);
+  };
 };
 var marker;
 function initMap(position, tag) {
