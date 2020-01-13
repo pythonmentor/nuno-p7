@@ -88,7 +88,7 @@ function mapGrandPyMessage(position, tag) {
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
     var elmt = document.getElementById('showMap_'+tag);
     elmt.style.height= "300px";
-    elmt.style.width= "260px";
+    elmt.style.width= "700px";
     initMap(position, tag);
     setDate();
     updateScrollbar();
