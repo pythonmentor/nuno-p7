@@ -68,17 +68,17 @@ function getMessageGrandPy(msg) {
     dataType: "json",
     success: function(data) {
       setTimeout(function() {
-        mapGrandPyMessage(data.message, data.position, data.tag);
+        mapGrandPyMessage(data.messages, data.position, data.tag);
       }, 3000);
     },
   });
 };
 
 var id_tags = Array();
-function mapGrandPyMessage( messages, position, tag) {
+function mapGrandPyMessage(messages, position, tag) {
   if(id_tags.includes(tag)){
-    message = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
-    grandPyMessage(message);
+    var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
+    grandPyMessage(message_ups);
   } else{
     id_tags.push(tag);
     messages.forEach(function(message) {
