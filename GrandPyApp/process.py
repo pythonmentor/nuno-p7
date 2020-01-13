@@ -52,7 +52,6 @@ def grandPyWork(message, app):
                 "position": msg_gmaps[1],
                 "tag": wiki_title[0]
                 }
-            print(msg_gmaps[1])
             return message
         except TypeError:
             return {"messages": [
