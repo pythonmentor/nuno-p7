@@ -85,8 +85,8 @@ function mapGrandPyMessage(position, tag) {
   updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div class="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
-    var elmt = document.getElementsByClassName('showMap_'+tag);
+    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+    var elmt = document.getElementById('showMap_'+tag);
     elmt.style.height= "300px";
     elmt.style.width= "700px";
     initMap(position, tag);
@@ -96,7 +96,7 @@ function mapGrandPyMessage(position, tag) {
 };
 var marker;
 function initMap(position, tag) {
-  tag = new google.maps.Map(document.getElementsByClassName('showMap_'+ tag ),{
+  tag = new google.maps.Map(document.getElementById('showMap_'+ tag ),{
     center: position,
     zoom: 18,
   });
