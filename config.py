@@ -3,9 +3,9 @@ import os
 
 
 MAPS_API_KEY = os.environ['API_PASSWORD']
-MAPS_API_FRONT = os.environ['API_PASS_FRONT']
+API_PASS_FRONT = os.environ['API_PASS_FRONT']
 
-print(MAPS_API_KEY)
+
 with open("stop_words.json") as json_stop_words:
     STOP_WORDS = json.load(json_stop_words)
 
