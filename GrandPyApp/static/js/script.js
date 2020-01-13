@@ -67,27 +67,24 @@ function getMessageGrandPy(msg) {
     url : '/process',
     dataType: "json",
     success: function(data) {
-      data.messages.forEach(function(message) {
-        grandPyMessage(message);
-      });
-      updateScrollbar();
       setTimeout(function() {
-        mapGrandPyMessage(data.position, data.tag);
-      }, 3000);
-      setTimeout(function() {
-        lastGrandPyMessage();
+        mapGrandPyMessage(data.message, data.position, data.tag);
       }, 3000);
     },
   });
 };
 
 var id_tags = Array();
-function mapGrandPyMessage(position, tag) {
+function mapGrandPyMessage( message, position, tag) {
   if(id_tags.includes(tag)){
     message = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
     grandPyMessage(message);
   } else{
     id_tags.push(tag);
+    data.messages.forEach(function(message) {
+      grandPyMessage(message);
+    });
+    updateScrollbar();
     $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
     setTimeout(function() {
@@ -99,6 +96,9 @@ function mapGrandPyMessage(position, tag) {
       initMap(position, tag);
       setDate();
       updateScrollbar();
+    }, 3000);
+    setTimeout(function() {
+      lastGrandPyMessage();
     }, 3000);
   };
 };
