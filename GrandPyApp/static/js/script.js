@@ -75,13 +75,13 @@ function getMessageGrandPy(msg) {
 };
 
 var id_tags = Array();
-function mapGrandPyMessage( message, position, tag) {
+function mapGrandPyMessage( messages, position, tag) {
   if(id_tags.includes(tag)){
     message = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
     grandPyMessage(message);
   } else{
     id_tags.push(tag);
-    data.messages.forEach(function(message) {
+    messages.forEach(function(message) {
       grandPyMessage(message);
     });
     updateScrollbar();
