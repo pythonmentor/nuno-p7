@@ -132,6 +132,7 @@ $(window).on('keydown', function(e) {
     return false;
   };
 });
+
 last = "Voilà petit fou! Une autre Question a me soumetre ?"
 function firstGrandPyMessage() {
   if ($('.message-input').val() != '') {
@@ -144,6 +145,7 @@ function firstGrandPyMessage() {
 
   grandPyMessage(msg);
 };
+
 function lastGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
