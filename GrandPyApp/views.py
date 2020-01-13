@@ -20,8 +20,21 @@ def home():
 def process():
     if request.method == 'POST':
         input_value = request.form['messageInput']
-        result = grandPyWork(input_value, app)
-        return jsonify(result)
+        all_inputs_session = []
+        if input_value not in all_inputs_session:
+            all_inputs_session.append(input_value)
+            result = grandPyWork(input_value, app)
+            return jsonify(result)
+        else:
+            message = {
+                "messages": [
+                    "He garçon, tu m'a dejà demande celà..." +
+                    " paresseux vas voir plus haut dans la conversation",
+                    "Tu croyais que je dormait non?",
+                    "T'as pas honte? Alors quelle adresse ou lieu" +
+                    " veux-tu découvrir?"
+                ]}
+            return jsonify(message)
 
 
 if __name__ == "__main__":
