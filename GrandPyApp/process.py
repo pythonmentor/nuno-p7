@@ -42,10 +42,9 @@ def grandPyWork(message, app):
                             "Coquinou, quand même!" +
                             "Et bein oui c'est a : " + msg_gmaps[2],
                             "En plus ce-ci est cadeau, gratos," +
-                            " rien que pour toi",
-                            "A propos de ta demande et pour la petitte" +
+                            "Et a propos de ta demande et pour la petitte" +
                             " histoire :" + history,
-                            "Pas bête la bête!",
+                            "Pas bête la bête!" +
                             "Allez autre chose... Je te montre," +
                             " une image vaux mieux que 1000 mots!!!"
                             ],

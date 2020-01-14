@@ -31,6 +31,12 @@ h3
   right: 0;
   box-shadow: 2px 10px 40px rgba(7, 7, 7, 0.4);
 }
+#Map
+{
+  height: 300px;
+  width: 700px;
+  border-radius: 20px 20px 20px 0;
+}
 /*--------------------
 Footer
 --------------------*/
@@ -205,9 +211,8 @@ Messages
 }
 .messages .message .checkmark-sent-delivered {
   position: absolute;
-  bottom: -20px;
-  right: 20px;
-  left: 10px;
+  bottom: -25px;
+  right: 15px;
   font-size: 18px;
   color: #999;
 }
@@ -215,7 +220,7 @@ Messages
   color: blue;
   position: absolute;
   bottom: -20px;
-  right: 16px;
+  right: 10px;
   font-size: 15px;
 }
 
@@ -710,7 +715,13 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
   .message-box .message-input {
     height: 18px;
   }
-  .av {
+
+  #Map {
+    height: 300px;
+    width: 260px;
+    border-radius: 5px 5px 5px 0;
+  }
+  .av{
     border-radius: 5px 5px 5px 0;
   }
   .avenue-messenger div.agent-face {
