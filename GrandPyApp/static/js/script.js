@@ -25,7 +25,7 @@ function grandPyMessage(message) {
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
-  }, 3000);
+  }, 2000);
 }
 
 function setDate(){
@@ -81,10 +81,9 @@ function mapGrandPyMessages(messages, position, tag) {
     grandPyMessage(message_ups);
   } else{
     id_tags.push(tag);
-    messages.forEach(function(message) {
-      grandPyMessage(message);
-    });
-    updateScrollbar();
+    grandPyMessage(data.messages[0]);
+    grandPyMessage(data.messages[1]);
+    grandPyMessage(data.messages[2]);
     $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
     setTimeout(function() {
@@ -102,10 +101,11 @@ function mapGrandPyMessages(messages, position, tag) {
       initMap(position, tag);
       setDate();
       updateScrollbar();
-    }, 3000);
+    }, 2000);
+    grandPyMessage(data.messages[3]);
     setTimeout(function() {
       lastGrandPyMessage();
-    }, 3000);
+    }, 2000);
   };
 };
 

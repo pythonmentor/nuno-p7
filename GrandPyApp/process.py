@@ -31,6 +31,7 @@ def grandPyWork(message, app):
         return {"messages": [
             "Ups je n'ai pas trouvé ce que tu me demandes,",
             "On vas devoir changer de conversation, tu veux?",
+            "j'en connais un rayon, mais ça???",
             "Alors qu'est-ce que tu veux savoir, petit filou?"
         ]}
     else:
@@ -41,12 +42,11 @@ def grandPyWork(message, app):
                             wiki_title[0],
                             "Coquinou, quand même!" +
                             "Et bein oui c'est a : " + msg_gmaps[2],
-                            "En plus ce-ci est cadeau, gratos," +
-                            "Et a propos de ta demande et pour la petitte" +
-                            " histoire :" + history,
                             "Pas bête la bête!" +
                             "Allez autre chose... Je te montre," +
-                            " une image vaux mieux que 1000 mots!!!"
+                            " une image vaux mieux que 1000 mots!!!",                            "En plus ce-ci est cadeau, gratos," +
+                            "Et a propos de ta demande et pour la petitte" +
+                            " histoire :" + history
                             ],
                 "position": msg_gmaps[1],
                 "tag": wiki_title[0]
@@ -55,7 +55,8 @@ def grandPyWork(message, app):
         except TypeError:
             return {"messages": [
                 "T'as pas hont de faire une blague a PAPY?",
+                "A ton age!!",
                 "Ups je n'ai pas trouvé ce que tu me demandes,",
                 "On vas devoir changer de conversation, " +
-                ".... Ha ces jeaunneaux..."
+                ".... Ha ces jeaunneaux...!!!"
             ]}

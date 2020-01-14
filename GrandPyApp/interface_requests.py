@@ -16,8 +16,12 @@ def call_google_maps_positionnement(key, tittle):
         return place_id, location, adress
 
     except IndexError:
-        search_json = "Desolé je n'ai pas pu t'aider mon petit, peut-tu " + \
-            "refaire ta demande autrement stp? Tu sais avec mon age..."
+        search_json = {"messages": [
+            "Desolé je n'ai pas pu t'aider mon petit...",
+            "Pour la petitte carte c'est louppe",
+            "A mon age, tu sais on n'as pas toutte sa tête!",
+            "Mais tu t'appliques ok?"
+        ]}
         return search_json
 
 # Api Wikipedia
@@ -42,15 +46,19 @@ def call_wiki_main_page(title):
         return processed_title, pageid
 
     except KeyError:
-        return [
+        return {"messages ": [
             "Ups je n'ai pas trouvé ce que tu me demandes,",
-            "On vas devoir changer de conversation, tu veux?"
-        ]
+            "On vas devoir changer de conversation, tu veux?",
+            "J'ai bien cherché dans ma tête, mais rien!!",
+            "je ne vopis pas de quoi tu veux parler.."
+        ]}
     except IndexError:
-        return [
+        return {"messages ": [
             "Ups je n'ai pas trouvé ce que tu me demandes,",
-            "On vas devoir changer de conversation, tu veux?"
-        ]
+            "On vas devoir changer de conversation, tu veux?",
+            "J'ai bien cherché dans ma tête, mais rien!!",
+            "je ne vopis pas de quoi tu veux parler.."
+        ]}
 
 
 def call_wiki_found_page(pageid):
