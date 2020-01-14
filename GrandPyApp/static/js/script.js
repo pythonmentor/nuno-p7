@@ -69,7 +69,7 @@ function getMessageGrandPy(msg) {
     success: function(data) {
       setTimeout(function() {
         mapGrandPyMessages(data.messages, data.position, data.tag);
-      }, 3000);
+      }, 2000);
     },
   });
 };
@@ -81,9 +81,9 @@ function mapGrandPyMessages(messages, position, tag) {
     grandPyMessage(message_ups);
   } else{
     id_tags.push(tag);
-    grandPyMessage(data.messages[0]);
-    grandPyMessage(data.messages[1]);
-    grandPyMessage(data.messages[2]);
+    grandPyMessage(messages[0]);
+    grandPyMessage(messages[1]);
+    grandPyMessage(messages[2]);
     $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
     setTimeout(function() {
@@ -102,7 +102,7 @@ function mapGrandPyMessages(messages, position, tag) {
       setDate();
       updateScrollbar();
     }, 2000);
-    grandPyMessage(data.messages[3]);
+    grandPyMessage(messages[3]);
     setTimeout(function() {
       lastGrandPyMessage();
     }, 2000);
