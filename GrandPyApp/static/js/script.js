@@ -81,12 +81,18 @@ function mapGrandPyMessages(messages, position, tag) {
     grandPyMessage(message_ups);
   } else{
     id_tags.push(tag);
-    grandPyMessage(messages[0]);
-    grandPyMessage(messages[1]);
-    grandPyMessage(messages[2]);
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-    updateScrollbar();
     setTimeout(function() {
+      grandPyMessage(messages[0]);
+    }, 2000);
+    setTimeout(function() {
+    grandPyMessage(messages[1]);
+    }, 2000);
+    setTimeout(function() {
+    grandPyMessage(messages[2]);
+    }, 2000);
+    setTimeout(function() {
+      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
+      updateScrollbar();
       $('.message.loading').remove();
       $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
       var elmt = document.getElementById('showMap_'+tag);
@@ -101,8 +107,10 @@ function mapGrandPyMessages(messages, position, tag) {
       initMap(position, tag);
       setDate();
       updateScrollbar();
-    }, 2000);
+    }, 3000);
+    setTimeout(function() {
     grandPyMessage(messages[3]);
+    }, 2000);
     setTimeout(function() {
       lastGrandPyMessage();
     }, 2000);
