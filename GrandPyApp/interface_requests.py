@@ -11,10 +11,6 @@ def call_google_maps_positionnement(key, tittle):
 
     try:
         place_id = search_json["results"][0]["place_id"]
-        location = search_json["results"][0]["geometry"]["location"]
-        adress = search_json["results"][0]["formatted_address"]
-        return place_id, location, adress
-
     except IndexError or KeyError:
         search_json = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
@@ -23,6 +19,10 @@ def call_google_maps_positionnement(key, tittle):
             "Mais tu t'appliques ok?"
         ]}
         return search_json
+    else:
+        location = search_json["results"][0]["geometry"]["location"]
+        adress = search_json["results"][0]["formatted_address"]
+        return place_id, location, adress
 
 # Api Wikipedia
 
