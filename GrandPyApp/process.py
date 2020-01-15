@@ -21,8 +21,7 @@ def grandPyWork(message, app):
         msg_to_api_requests
         )
     wiki_title = call_wiki_main_page(msg_to_api_requests)
-    history = call_wiki_found_page(wiki_title[1])
-
+    history = call_wiki_found_page(wiki_title[1]
     if msg_gmaps[2] == IndexError:
         return {"messages": msg_gmaps}
     if wiki_title[1] == IndexError:

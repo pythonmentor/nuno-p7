@@ -42,16 +42,16 @@ def call_wiki_main_page(title):
 
     try:
         processed_title = data["query"]["search"][0]["title"]
-        pageid = data["query"]["search"][0]["pageid"]
-        return processed_title, pageid
-
-    except KeyError or IndexError:
+    except IndexError or KeyError:
         return {"messages ": [
             "Ups je n'ai pas trouvé ce que tu me demandes,",
             "On vas devoir changer de conversation, tu veux?",
             "J'ai bien cherché dans ma tête, mais rien!!",
             "je ne vopis pas de quoi tu veux parler.."
         ]}
+    else:
+        pageid = data["query"]["search"][0]["pageid"]
+        return processed_title, pageid
 
 
 def call_wiki_found_page(pageid):
