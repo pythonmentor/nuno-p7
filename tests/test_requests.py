@@ -1,10 +1,8 @@
-from GrandPyApp.interface_requests import (
-  call_google_maps_positionnement,
-  call_wiki_found_page,
-  call_wiki_main_page
-  )
+import os
+from GrandPyApp import interface_requests as ir
 import json
 from .config import MAPS_API_KEY
+print(os.environ["API_PASSWORD"])
 """
 For test all API's you need a Google DEV Key,
 For security reasons i have hide in a Py secret file.
@@ -36,16 +34,16 @@ def test_call_google_maps(monkeypatch):
     location_test = results_test["results"][0]["geometry"]["location"]
     adress_test = results_test["results"][0]["formatted_address"]
 
-    assert call_google_maps_positionnement(
+    assert ir.call_google_maps_positionnement(
       key,
       "openclassrooms")[0] == place_id_test
-    assert call_google_maps_positionnement(
+    assert ir.call_google_maps_positionnement(
       key,
       "openclassrooms")[1] == location_test
-    assert call_google_maps_positionnement(
+    assert ir.call_google_maps_positionnement(
       key,
       "openclassrooms")[2] == adress_test
-    assert call_google_maps_positionnement(
+    assert ir.call_google_maps_positionnement(
       key,
       "") == "Desolé je n'ai pas pu t'aider mon petit, peut-tu " + \
         "refaire ta demande autrement stp? Tu sais avec mon age..."
@@ -72,9 +70,9 @@ def test_call_wiki_main_page(monkeypatch):
     processed_title = results_test["query"]["search"][0]["title"]
     pageid = results_test["query"]["search"][0]["pageid"]
 
-    assert call_wiki_main_page(
+    assert ir.call_wiki_main_page(
       "openclassrooms")[0] == processed_title
-    assert call_wiki_main_page(
+    assert ir.call_wiki_main_page(
       "openclassrooms")[1] == pageid
 
 
@@ -100,4 +98,4 @@ def test_call_wiki_found_page(monkeypatch):
       "openclassrooms")[1]
     text = results_test['query']['pages'][str(pageid)]['extract']
 
-    assert call_wiki_found_page(pageid) == text
+    assert ir.call_wiki_found_page(pageid) == text

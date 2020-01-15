@@ -49,7 +49,7 @@ def grandPyWork(message, app):
             "je ne vois pas de quoi tu veux parler.."
         ]}
     else:
-        pageid = processed_title["query"]["search"][0]["pageid"]
+        pageid = wiki_title["query"]["search"][0]["pageid"]
         history = call_wiki_found_page(pageid)
         try:
             # Construction of the bot responses

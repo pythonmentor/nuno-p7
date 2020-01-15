@@ -1,4 +1,4 @@
-from GrandPyApp.first_input_parser import parse_user_input, important_words
+from ..GrandPyApp.first_input_parser import parse_user_input, important_words
 from .config import STOP_WORDS, WORDS_TO_REMOVE
 
 
