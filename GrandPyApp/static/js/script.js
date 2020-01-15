@@ -147,7 +147,6 @@ function firstGrandPyMessage() {
   " trouver des lieux mais je suis un peut rouillé"+
   " alors sois gentil avec moi,j'aime bien radotter sur"+
   " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "
-
   grandPyMessage(msg);
 };
 
