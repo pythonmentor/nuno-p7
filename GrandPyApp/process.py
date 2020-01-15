@@ -28,7 +28,8 @@ def grandPyWork(message, app):
             "Pour la petitte carte c'est louppe",
             "A mon age, tu sais on n'as pas toutte sa tête!",
             "Mais tu t'appliques ok?"
-        ]}
+        ], "tag": "ups"
+        }
         return ups
     else:
         adress = msg_gmaps["results"][0]["formatted_address"]
