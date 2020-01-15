@@ -76,7 +76,7 @@ function getMessageGrandPy(msg) {
 
 var id_tags = Array();
 function mapGrandPyMessages(messages, position, tag) {
-  if(id_tags==="ups") {
+  if(tag==="ups") {
     grandPyMessage(messages[0]);
     grandPyMessage(messages[1]);
     grandPyMessage(messages[2]);
