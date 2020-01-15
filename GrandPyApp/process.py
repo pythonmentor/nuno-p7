@@ -31,7 +31,7 @@ def grandPyWork(message, app):
             "Desolé je n'ai pas pu t'aider mon petit...",
             "Ecris mieux tête de linotte!",
             "Et tu sait? A mon age, on n'as pas toutte sa tête!",
-            "Et redemandemoi-ce que tu veut, mais tu t'appliques ok?"
+            "Et redemande moi-ce que tu veut, mais tu t'appliques ok?"
         ], "tag": "ups"
         }
         return ups
