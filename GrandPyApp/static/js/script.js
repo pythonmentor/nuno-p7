@@ -18,12 +18,12 @@ function updateScrollbar() {
 }
 
 function grandPyMessage(message) {
-  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-  updateScrollbar();
   setTimeout(function() {
     $('.message.loading').remove();
     $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
+    updateScrollbar();
+    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
     updateScrollbar();
   }, 2000);
 }
@@ -47,6 +47,8 @@ function insertMessage() {
   $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
   setDate();
   $('.message-input').val(null);
+  updateScrollbar();
+  $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
   updateScrollbar();
   getMessageGrandPy(msg);
 };
