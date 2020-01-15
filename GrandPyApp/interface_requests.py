@@ -4,6 +4,9 @@ import requests
 
 
 def call_google_maps_positionnement(key, tittle):
+    """
+    Send a request to Google Maps API
+    """
     search_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     search_payload = {"key": key, "query": tittle}
     search_req = requests.get(search_url, params=search_payload)
@@ -14,7 +17,9 @@ def call_google_maps_positionnement(key, tittle):
 
 
 def call_wiki_main_page(title):
-    """Call Api Wikipedia"""
+    """
+    Call Api Wikipedia
+    """
     s = requests.Session()
     url = "https://fr.wikipedia.org/w/api.php"
     params = {
@@ -29,6 +34,9 @@ def call_wiki_main_page(title):
 
 
 def call_wiki_found_page(pageid):
+    """
+    Second request to wikipedia to have the text of the first request
+    """
     s = requests.Session()
 
     url = "https://fr.wikipedia.org/w/api.php"

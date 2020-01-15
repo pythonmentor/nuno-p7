@@ -26,7 +26,7 @@ def parse_user_input(user_input, stop_words_custom):
 
 def important_words(parsed_sentence, words_to_remove):
     """
-    Get a positionement word
+    Get a parsed word tu send to the API's
     """
     new_sentence = []
     for word in parsed_sentence:
