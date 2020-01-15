@@ -5,7 +5,11 @@ from GrandPyApp.interface_requests import (
   )
 import json
 from .config import MAPS_API_KEY
-
+"""
+For test all API's you need a Google DEV Key,
+For security reasons i have hide in a Py secret file.
+Here you must put Yours DEV Google key
+"""
 
 key = MAPS_API_KEY
 
