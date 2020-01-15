@@ -20,35 +20,47 @@ def grandPyWork(message, app):
         g_maps_key,
         msg_to_api_requests
         )
+    try:
+        location = msg_gmaps["results"][0]["geometry"]["location"]
+    except IndexError or KeyError:
+        ups = {"messages": [
+            "Desolé je n'ai pas pu t'aider mon petit...",
+            "Pour la petitte carte c'est louppe",
+            "A mon age, tu sais on n'as pas toutte sa tête!",
+            "Mais tu t'appliques ok?"
+        ]}
+        return ups
+    else:
+        adress = msg_gmaps["results"][0]["formatted_address"]
+
     wiki_title = call_wiki_main_page(msg_to_api_requests)
-    history = call_wiki_found_page(wiki_title[1]
-    if msg_gmaps[2] == IndexError:
-        return {"messages": msg_gmaps}
-    if wiki_title[1] == IndexError:
-        return {"messages": wiki_title}
-    if msg_gmaps[2] == KeyError:
-        return {"messages": [
+    try:
+        processed_title = wiki_title["query"]["search"][0]["title"]
+    except IndexError or KeyError:
+        return {"messages ": [
             "Ups je n'ai pas trouvé ce que tu me demandes,",
             "On vas devoir changer de conversation, tu veux?",
-            "j'en connais un rayon, mais ça???",
-            "Alors qu'est-ce que tu veux savoir, petit filou?"
+            "J'ai bien cherché dans ma tête, mais rien!!",
+            "je ne vopis pas de quoi tu veux parler.."
         ]}
     else:
+        pageid = processed_title["query"]["search"][0]["pageid"]
+        history = call_wiki_found_page(pageid)
         try:
             message = {
                 "messages": [
                             "Et donc tu veux savoir tout sur " +
-                            wiki_title[0],
+                            processed_title,
                             "Coquinou, quand même!" +
-                            "Et bein oui c'est a : " + msg_gmaps[2],
+                            "Et bein oui c'est a : " + adress,
                             "Pas bête la bête!" +
                             " Allez autre chose... Je te montre," +
                             " une image vaux mieux que 1000 mots!!!",
                             "Et a propos de ta demande et pour la petitte" +
                             " histoire :" + history
                             ],
-                "position": msg_gmaps[1],
-                "tag": wiki_title[0]
+                "position": location,
+                "tag": processed_title
                 }
             return message
         except TypeError:
