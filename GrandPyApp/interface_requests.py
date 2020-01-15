@@ -15,7 +15,7 @@ def call_google_maps_positionnement(key, tittle):
         adress = search_json["results"][0]["formatted_address"]
         return place_id, location, adress
 
-    except IndexError:
+    except IndexError or KeyError:
         search_json = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
             "Pour la petitte carte c'est louppe",
@@ -45,14 +45,7 @@ def call_wiki_main_page(title):
         pageid = data["query"]["search"][0]["pageid"]
         return processed_title, pageid
 
-    except KeyError:
-        return {"messages ": [
-            "Ups je n'ai pas trouvé ce que tu me demandes,",
-            "On vas devoir changer de conversation, tu veux?",
-            "J'ai bien cherché dans ma tête, mais rien!!",
-            "je ne vopis pas de quoi tu veux parler.."
-        ]}
-    except IndexError:
+    except KeyError or IndexError:
         return {"messages ": [
             "Ups je n'ai pas trouvé ce que tu me demandes,",
             "On vas devoir changer de conversation, tu veux?",
