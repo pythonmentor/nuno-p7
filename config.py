@@ -1,7 +1,6 @@
 import json
 import os
 
-
 MAPS_API_KEY = os.environ['API_PASSWORD']
 API_PASS_FRONT = os.environ['API_PASS_FRONT']
 

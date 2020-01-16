@@ -1,15 +1,14 @@
 import os
 from GrandPyApp import interface_requests as ir
 import json
-from .config import MAPS_API_KEY
-print(os.environ["API_PASSWORD"])
+
 """
 For test all API's you need a Google DEV Key,
 For security reasons i have hide in a Py secret file.
 Here you must put Yours DEV Google key
 """
 
-key = MAPS_API_KEY
+key = os.environ["API_PASSWORD"]
 
 
 def test_call_google_maps(monkeypatch):
@@ -94,7 +93,7 @@ def test_call_wiki_found_page(monkeypatch):
       mock_call_wiki_found_page
       )
 
-    pageid = call_wiki_main_page(
+    pageid = ir.call_wiki_main_page(
       "openclassrooms")[1]
     text = results_test['query']['pages'][str(pageid)]['extract']
 
