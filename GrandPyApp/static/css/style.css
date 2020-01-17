@@ -40,6 +40,10 @@ h3
 /*--------------------
 Footer
 --------------------*/
+.close:hover
+{
+  padding-right: 100px;
+}
 .footer
 {
   position:fixed;
