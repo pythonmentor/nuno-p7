@@ -1,4 +1,4 @@
-from ..GrandPyApp import first_input_parser as first
+from GrandPyApp import first_input_parser as first
 from .config import STOP_WORDS, WORDS_TO_REMOVE
 
 
