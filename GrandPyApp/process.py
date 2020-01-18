@@ -29,8 +29,8 @@ def grandPyWork(message, app):
     except IndexError or KeyError:
         ups = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
-            "Ecris mieux tête de linotte!",
-            "Et tu sait? A mon age, on n'as pas toutte sa tête!",
+            "Écris mieux tête de linotte!",
+            "Et tu sait? A mon age, on n'as pas toute sa tête!",
             "Et redemande moi-ce que tu veut, mais tu t'appliques ok?"
         ], "tag": "ups"
         }
@@ -75,5 +75,5 @@ def grandPyWork(message, app):
                 "A ton age!!",
                 "Ups je n'ai pas trouvé ce que tu me demandes,",
                 "On vas devoir changer de conversation, " +
-                ".... Ha ces jeaunneaux...!!!"
+                ".... Ha ces jetits jeunes...!!!"
             ]}
