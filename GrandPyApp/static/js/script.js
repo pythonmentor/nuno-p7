@@ -4,9 +4,7 @@ var $messages = $('.messages-content'),
 
 $(window).load(function() {
   $messages.mCustomScrollbar();
-  setTimeout(function() {
-    firstGrandPyMessage();
-  }, 100);
+  firstGrandPyMessage();
 });
 
 
@@ -18,12 +16,10 @@ function updateScrollbar() {
 }
 
 function grandPyMessage(message) {
-  setTimeout(function() {
-    $('.message.loading').remove();
-    $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
-    setDate();
-    updateScrollbar();
-  }, 2000);
+  $('.message.loading').remove();
+  $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure>' + message + '</div>').appendTo($('.mCSB_container')).addClass('new');
+  setDate();
+  updateScrollbar();
 }
 
 function setDate(){
@@ -67,9 +63,7 @@ function getMessageGrandPy(msg) {
     url : '/process',
     dataType: "json",
     success: function(data) {
-      setTimeout(function() {
-        mapGrandPyMessages(data.messages, data.position, data.tag);
-      }, 2000);
+      mapGrandPyMessages(data.messages, data.position, data.tag);
     },
   });
 };
@@ -90,22 +84,20 @@ function mapGrandPyMessages(messages, position, tag) {
       grandPyMessage(messages[0]);
       grandPyMessage(messages[1]);
       grandPyMessage(messages[2]);
-        setTimeout(function() {
-        $('.message.loading').remove();
-        $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
-        var elmt = document.getElementById('showMap_'+tag);
-        var mq = window.matchMedia("screen and (min-width: 1024px");
-        if (mq.matches) {
-          elmt.style.height= "300px";
-          elmt.style.width= "700px";
-        } else {
-          elmt.style.height= "200px";
-          elmt.style.width= "260px";
-        }
-        initMap(position, tag);
-        setDate();
-        updateScrollbar();
-      }, 2000);
+      $('.message.loading').remove();
+      $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
+      var elmt = document.getElementById('showMap_'+tag);
+      var mq = window.matchMedia("screen and (min-width: 1024px");
+      if (mq.matches) {
+        elmt.style.height= "300px";
+        elmt.style.width= "700px";
+      } else {
+        elmt.style.height= "200px";
+        elmt.style.width= "260px";
+      }
+      initMap(position, tag);
+      setDate();
+      updateScrollbar();
       grandPyMessage(messages[3]);
       lastGrandPyMessage();
     };
