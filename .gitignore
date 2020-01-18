@@ -2,4 +2,3 @@ venv
 .vscode
 __pycache__
 secret.py
-test_process.py
