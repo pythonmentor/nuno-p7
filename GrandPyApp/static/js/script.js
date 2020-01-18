@@ -78,17 +78,9 @@ var id_tags = Array();
 function mapGrandPyMessages(messages, position, tag) {
   if(tag==="ups") {
     grandPyMessage(messages[0]);
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-    updateScrollbar();
     grandPyMessage(messages[1]);
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-    updateScrollbar();
     grandPyMessage(messages[2]);
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-    updateScrollbar();
     grandPyMessage(messages[3]);
-    $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-    updateScrollbar();
   } else {
     if(id_tags.includes(tag)){
       var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
@@ -96,14 +88,8 @@ function mapGrandPyMessages(messages, position, tag) {
     } else{
       id_tags.push(tag);
       grandPyMessage(messages[0]);
-      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-      updateScrollbar();
       grandPyMessage(messages[1]);
-      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-      updateScrollbar();
       grandPyMessage(messages[2]);
-      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-      updateScrollbar();
         setTimeout(function() {
         $('.message.loading').remove();
         $('<div class="message new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><div id="showMap_'+tag+'"></div></div>').appendTo($('.mCSB_container')).addClass('new');
@@ -120,11 +106,7 @@ function mapGrandPyMessages(messages, position, tag) {
         setDate();
         updateScrollbar();
       }, 2000);
-      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-      updateScrollbar();
       grandPyMessage(messages[3]);
-      $('<div class="message loading new"><figure class="avatar"><img src="../static/images/papy.gif" /></figure><span></span></div>').appendTo($('.mCSB_container'));
-      updateScrollbar();
       lastGrandPyMessage();
     };
   };
