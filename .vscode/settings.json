@@ -1,9 +1,0 @@
-{
-    "files.trimTrailingWhitespace": true,
-    "python.pythonPath": "C:\\Python\\python.exe",
-    "python.linting.flake8Enabled": true,
-    "python.linting.pylintEnabled": false,
-    "cSpell.words": [
-        "openclassrooms"
-    ]
-}
