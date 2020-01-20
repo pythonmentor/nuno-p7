@@ -4,7 +4,6 @@ from .interface_requests import (
     call_wiki_main_page,
     call_wiki_found_page
 )
-import json
 
 
 def grandPyWork(message, app):
@@ -69,7 +68,6 @@ def grandPyWork(message, app):
                 "position": location,
                 "tag": processed_title
                 }
-            print(message)
             return message
         except TypeError:
             return {"messages": [
