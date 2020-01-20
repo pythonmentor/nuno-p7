@@ -69,8 +69,7 @@ def grandPyWork(message, app):
                 "position": location,
                 "tag": processed_title
                 }
-            with open("fichier.json", "w") as f_write:
-                json.dump(message, f_write)
+            print(message)
             return message
         except TypeError:
             return {"messages": [
