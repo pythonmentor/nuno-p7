@@ -26,7 +26,7 @@ def grandPyWork(message, app):
         )
     try:
         location = msg_gmaps["results"][0]["geometry"]["location"]
-    except KeyError or ImportError:
+    except KeyError or IndexError:
         ups = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
             "Écris mieux tête de linotte!",
