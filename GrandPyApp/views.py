@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from .process import grandPyWork
+import json
 
 
 app = Flask(__name__)
@@ -21,6 +22,8 @@ def process():
     if request.method == 'POST':
         input_value = request.form['messageInput']
         result = grandPyWork(input_value, app)
+        with open("result.json", "w") as f_write:
+            json.dump(result, f_write)
         return jsonify(result)
 
 
