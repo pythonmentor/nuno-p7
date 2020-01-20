@@ -25,7 +25,7 @@ def grandPyWork(message, app):
         msg_to_api_requests
         )
     try:
-        location = msg_gmaps["results"][0]["geometry"]["location"]
+        address = msg_gmaps["results"][0]["formatted_address"]
     except IndexError or KeyError:
         ups = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
@@ -36,7 +36,7 @@ def grandPyWork(message, app):
         }
         return ups
     else:
-        address = msg_gmaps["results"][0]["formatted_address"]
+        location = msg_gmaps["results"][0]["geometry"]["location"]
     # call Wikipedia for a tittle and test il the parsed input is Ok
     wiki_title = call_wiki_main_page(msg_to_api_requests)
     try:
