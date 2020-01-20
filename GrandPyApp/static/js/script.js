@@ -77,7 +77,7 @@ function mapGrandPyMessages(messages, position, tag) {
     grandPyMessage(messages[3]);
   } else {
     if(id_tags.includes(tag)){
-      var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeauneaux..Renenons a nos mouttons.. Que veux-tu que je te trouve encore?"
+      var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeuneaux..Revenons a nos moutons.. Que veux-tu que je te trouve encore?"
       grandPyMessage(message_ups);
     } else{
       id_tags.push(tag);
@@ -128,14 +128,14 @@ $(window).on('keydown', function(e) {
   };
 });
 
-last = "Voilà petit fou! Une autre Question a me soumetre ?"
+last = "Voilà petit fou! Une autre Question a me soumettre ?"
 function firstGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
   msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
   " trouver des lieux mais je suis un peut rouillé"+
-  " alors sois gentil avec moi,j'aime bien radotter sur"+
+  " alors sois gentil avec moi,j'aime bien radoter sur"+
   " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "
   grandPyMessage(msg);
 };
@@ -144,7 +144,7 @@ function lastGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
-  last = "Voilà petit fou! Une autre question a me soumetre ? Profite je suis de bonne humeur!"
+  last = "Voilà petit fou! Une autre question a me soumettre ? Profite je suis de bonne humeur!"
   grandPyMessage(last);
 };
 
