@@ -136,7 +136,7 @@ function firstGrandPyMessage() {
   msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
   " trouver des lieux mais je suis un peut rouillé"+
   " alors sois gentil avec moi,j'aime bien radoter sur"+
-  " ce qui est la vie, mais en quoi je puis t'aider?ZZZzzz "
+  " ce qui est la vie, mais quel lieu veux-tu que je te trouve?ZZZzzz "
   grandPyMessage(msg);
 };
 
