@@ -694,7 +694,7 @@ box-shadow: 0px 0px 10px rgba(0,0,0,.8);
 .menu .items a:hover {
   color: #777;
 }
-@media only screen and(max-device-width: 768px) {
+@media only screen and(max-device-width: 320px) {
   #Map
   {
     height: 300px;
