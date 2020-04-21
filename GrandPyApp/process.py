@@ -30,8 +30,8 @@ def grandPyWork(message, app):
         ups = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
             "Écris mieux tête de linotte!",
-            "Et tu sait? A mon age, on n'as pas toute sa tête!",
-            "Et redemande moi-ce que tu veut, mais tu t'appliques ok?"
+            "Et tu sait? A mon age, on n'a pas toute sa tête!",
+            "Et redemande moi-ce que tu veux, mais tu t'appliques ok?"
         ], "tag": "ups"
         }
         return ups

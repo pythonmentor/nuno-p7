@@ -77,7 +77,7 @@ function mapGrandPyMessages(messages, position, tag) {
     grandPyMessage(messages[3]);
   } else {
     if(id_tags.includes(tag)){
-      var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeuneaux..Revenons a nos moutons.. Que veux-tu que je te trouve encore?"
+      var message_ups = "Petit coquin, a faire des blagues a PaPy.., Cherche plus haut dans la conversation je te l'ai déja trouvé!! Ha les jeuneaux...Revenons a nos moutons.. Que veux-tu que je te trouve encore?"
       grandPyMessage(message_ups);
     } else{
       id_tags.push(tag);
