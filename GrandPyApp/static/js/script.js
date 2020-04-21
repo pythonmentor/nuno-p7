@@ -134,9 +134,9 @@ function firstGrandPyMessage() {
     return false;
   }
   msg = "Salut coquinou, je suis GrandPy, J'aime bien"+
-  " trouver des lieux mais je suis un peut rouillé"+
-  " alors sois gentil avec moi,j'aime bien radoter sur"+
-  " ce qui est la vie, mais quel lieu veux-tu que je te trouve?ZZZzzz "
+  " trouver des lieux mais je suis un peu rouillé"+
+  " alors sois gentil avec moi,j'aime bien radoter..." +
+  "mais quel lieu veux-tu que je te trouve? ZZZzzz "
   grandPyMessage(msg);
 };
 
@@ -144,7 +144,7 @@ function lastGrandPyMessage() {
   if ($('.message-input').val() != '') {
     return false;
   }
-  last = "Voilà petit fou! Une autre question a me soumettre ? Profite je suis de bonne humeur!"
+  last = "Voilà petit fou! Une autre question à me soumettre ? Profites je suis de bonne humeur!"
   grandPyMessage(last);
 };
 
