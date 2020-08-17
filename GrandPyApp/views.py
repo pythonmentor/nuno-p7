@@ -21,7 +21,7 @@ def process():
     if request.method == 'POST':
         input_value = request.form['messageInput']
         result = grandPyWork(input_value, app)
-        print(result)
+        print(jsonify(result))
         return jsonify(result)
 
 
