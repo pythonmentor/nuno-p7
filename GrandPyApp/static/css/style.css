@@ -123,9 +123,9 @@ Chat
 --------------------*/
 .chat {
   position: relative;
-  width: 100%;
+  width: 98%;
   height: calc(100% - 15px);
-  max-height: 95%px;
+  max-height: 95%;
   z-index: 10;
   overflow: hidden;
   box-shadow: 0 5px 30px rgba(0, 0, 0, .2);
