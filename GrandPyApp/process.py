@@ -1,4 +1,4 @@
-from .first_input_parser import parse_user_input, important_words
+from .first_input_parser import parse_user_input
 from .interface_requests import (
     call_google_maps_positionnement,
     call_wiki_main_page,
@@ -15,14 +15,13 @@ def grandPyWork(message, app):
     # To get one variable, tape app.config['MY_VARIABLE']
     g_maps_key = app.config["MAPS_API_KEY"]
     stop_words_custom = app.config['STOP_WORDS']
-    words_to_remove = app.config['WORDS_TO_REMOVE']
     # Parse the input sentence
     parsed_msg = parse_user_input(message, stop_words_custom)
-    msg_to_api_requests = important_words(parsed_msg, words_to_remove)
+
     # Request and test the Google Maps call
     msg_gmaps = call_google_maps_positionnement(
         g_maps_key,
-        msg_to_api_requests
+        parsed_msg
         )
     try:
         location = msg_gmaps["results"][0]["geometry"]["location"]
@@ -38,7 +37,7 @@ def grandPyWork(message, app):
     else:
         address = msg_gmaps["results"][0]["formatted_address"]
     # call Wikipedia for a tittle and test il the parsed input is Ok
-    wiki_title = call_wiki_main_page(msg_to_api_requests)
+    wiki_title = call_wiki_main_page(parsed_msg)
     try:
         processed_title = wiki_title["query"]["search"][0]["title"]
     except IndexError or KeyError:

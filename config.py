@@ -7,14 +7,3 @@ API_PASS_FRONT = os.environ['API_PASS_FRONT']
 
 with open("stop_words.json") as json_stop_words:
     STOP_WORDS = json.load(json_stop_words)
-
-WORDS_TO_REMOVE = [
-    "bonjour",
-    "bonsoir",
-    "salut",
-    "hello",
-    "adresse",
-    "situé",
-    "situe",
-    "trouve"
-]
