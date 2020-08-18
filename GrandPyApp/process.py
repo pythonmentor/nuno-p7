@@ -25,6 +25,7 @@ def grandPyWork(message, app):
         )
     try:
         location = msg_gmaps["results"][0]["geometry"]["location"]
+    # -tc incorrect
     except IndexError or KeyError:
         ups = {"messages": [
             "Desolé je n'ai pas pu t'aider mon petit...",
